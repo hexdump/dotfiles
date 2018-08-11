@@ -11,3 +11,4 @@
 cp Xdefaults ~/.Xdefaults
 cp i3-config ~/.config/i3/config
 cp init.el ~/.emacs.d/init.el
+cp bashrc ~/.bashrc
