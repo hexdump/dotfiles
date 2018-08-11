@@ -14,6 +14,9 @@ export PATH="$PATH:/home/lschumm/research/lime/lime"
 alias clear="clear; acpi"
 stty intr \^b
 
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 function asm() {
     nasm -f elf "${1}.nasm"; ld -m elf_i386 -s -o "${1}" "${1}.o"; "./${1}"; rm "${1}.o"; rm "${1}"
 }
