@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+#
+# [dotfiles/install]
+#
+# The dotfiles installer.
+# Copyright (C) 2018, Liam Schumm.
+# Released into the public domain.
+# 
+
+cp Xdefaults ~/.Xdefaults
+cp i3-config ~/.config/i3/config
+cp init.el ~/.emacs.d/init.el
