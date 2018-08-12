@@ -66,3 +66,6 @@ function ping-enable {
     echo 0 | sudo tee /proc/sys/net/ipv4/icmp_echo_ignore_all
 }
 
+function external-monitor {
+	 xrandr --output VGA-1 --mode 1680x1050 --pos 0x0 --rotate normal --output LVDS-1 --primary --mode 1600x900 --pos 40x1050 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off
+}
