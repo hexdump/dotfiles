@@ -14,7 +14,7 @@ export PATH="$PATH:/home/lschumm/research/lime/lime"
 source /usr/share/nvm/init-nvm.sh
 
 alias clear="clear; acpi"
-stty intr \^b
+# stty intr \^b
 
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
