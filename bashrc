@@ -82,3 +82,13 @@ function wifi-down {
 	 sudo ip link set dev wlp3s0 down
 
 }
+
+function sus {
+
+	 #
+	 # suspends the computer
+	 #
+
+	 systemctl suspend
+
+}
