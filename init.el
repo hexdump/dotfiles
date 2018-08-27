@@ -46,3 +46,27 @@
 
 (setq custom-file "~/.emacs.d/custom.el") ;; set custom file
 (load custom-file 'noerror)               ;; load custom file (required)
+
+;;
+;; copyright inserting macro
+;;
+
+(defun copyright (comment)
+  (interactive "sComment Character: ")
+  (insert comment)
+  (insert "\n")
+  (insert comment)
+  (insert " [")
+  (insert (read-string "Title: "))
+  (insert "]\n")
+  (insert comment)
+  (insert "\n")
+  (insert comment)
+  (insert " ")
+  (insert (read-string "Description: "))
+  (insert "\n")
+  (insert comment)
+  (insert " Copyright (C) 2018, Liam Schumm")
+  (insert "\n")
+  (insert comment)
+  (insert "\n"))
