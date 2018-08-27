@@ -9,7 +9,7 @@ acpi
 
 alias ls='ls --color=auto'
 PS1='$ '
-export PATH="$PATH:/home/lschumm/research/lime/lime"
+export PATH="$PATH:/home/lschumm/research/lime/lime:/home/lschumm/research/pomme/"
 
 source /usr/share/nvm/init-nvm.sh
 
