@@ -10,10 +10,11 @@
 ;; remove all useless graphical cruft
 ;;
 
-(menu-bar-mode -1)     ;; menubar (file, edit, etc.)
-(tool-bar-mode -1)     ;; big ugly tooltips
-(toggle-scroll-bar -1) ;; graphical scrollbar
-(set-fringe-mode -1)   ;; "fringe" borders on sides of window
+(menu-bar-mode -1)              ;; menubar (file, edit, etc.)
+(tool-bar-mode -1)              ;; big ugly tooltips
+(toggle-scroll-bar -1)          ;; graphical scrollbar
+(set-fringe-mode -1)            ;; "fringe" borders on sides of window
+(setq inhibit-startup-screen t) ;; don't open a "welcome to emacs" screen
 
 ;;
 ;; don't write backups in the same directory as the file
