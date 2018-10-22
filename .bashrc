@@ -1,5 +1,8 @@
 #
-# ~/.bashrc
+# [.bashrc]
+#
+# My bash shell startup file.
+# Copyright (C) 2018, Liam Schumm
 #
 
 # If not running interactively, don't do anything
