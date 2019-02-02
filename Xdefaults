@@ -1,4 +1,0 @@
-urxvt*font:      xft:Meslo:pixelsize=12
-urxvt*scrollBar: false
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard

@@ -12,9 +12,6 @@
 ;;
 
 (menu-bar-mode -1)              ;; menubar (file, edit, etc.)
-(tool-bar-mode -1)              ;; big ugly tooltips
-(toggle-scroll-bar -1)          ;; graphical scrollbar
-(set-fringe-mode 0)            ;; "fringe" borders on sides of window
 (setq inhibit-startup-screen t) ;; don't open a "welcome to emacs" screen
 
 
@@ -23,33 +20,8 @@
 ;;
 
 (setq backup-inhibited t)
+(setq create-lockfiles -1)
 (setq auto-save-default nil)
-
-
-;;
-;; theming
-;;
-
-(load-theme 'dichromacy) ;; default theme
-
-
-;;
-;; fonts
-;;
-
-;; load Vulf Mono Italic as the default theme
-(set-face-attribute 'default nil
-		    :family "Vulf Mono"
-                    :height 90
-                    :slant 'italic
-                    :weight 'normal
-                    :width 'normal)
-
-;; make comments bold
-(set-face-attribute 'font-lock-comment-face nil
-                    :weight 'bold)
-(set-face-attribute 'font-lock-comment-delimiter-face nil
-                    :weight 'bold)
 
 
 ;;
@@ -89,10 +61,23 @@
   (insert (read-string "Description: "))
   (insert "\n")
   (insert comment)
-  (insert " Copyright (C) 2018, Liam Schumm")
+  (insert " Copyright (C) 2019, Liam Schumm")
   (insert "\n")
   (insert comment)
   (insert "\n"))
+
+;; hashbang insert
+(defun hashbang (command)
+  (interactive "sCommand: ")
+  (insert "#!/usr/bin/env ")
+  (insert command)
+  (insert "\n"))
+
+;; hashbang and copyright insert
+(defun hashcopy ()
+  (interactive)
+  (call-interactively 'hashbang)
+  (call-interactively 'copyright))
 
 
 ;;
@@ -107,6 +92,8 @@
 ;;
 
 (setq initial-scratch-message "")
+;; for some reason, you need to provide your username to
+;; 'inhibit-startup-echo-area-message. i have no clue why.
 (setq inhibit-startup-echo-area-message "lschumm")
 (setq inhibit-startup-message t)
 (message nil)
@@ -120,3 +107,11 @@
 (setq header-line-format mode-line-format)
 (setq-default mode-line-format nil)
 (setq-default header-line-format mode-line-format)
+
+
+;;
+;; enable wakatime
+;;
+
+(global-wakatime-mode)
+(custom-set-variables '(wakatime-api-key "92dd49d1-4090-40ef-beb9-e7129c6f252b"))

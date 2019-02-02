@@ -3,12 +3,10 @@
 #
 # [dotfiles/install]
 #
-# The dotfiles installer.
-# Copyright (C) 2018, Liam Schumm.
-# Released into the public domain.
+# My dotfiles installer.
+# Copyright (C) 2018-2019, Liam Schumm.
 # 
 
-cp Xdefaults ~/.Xdefaults
-cp i3-config ~/.config/i3/config
-cp init.el ~/.emacs.d/init.el
+
 cp bashrc ~/.bashrc
+cp init.el ~/.emacs.d/init.el
