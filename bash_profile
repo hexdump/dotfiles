@@ -33,3 +33,4 @@ alias ld="lime dshell"
 # i prefer Desktop, since it doesn't have that stuff and
 # is also visible on the screen by default.
 cd ~/Desktop
+alias cd="HOME=/Users/lschumm/Desktop cd"
