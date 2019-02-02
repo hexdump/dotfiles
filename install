@@ -8,5 +8,5 @@
 # 
 
 
-cp bashrc ~/.bashrc
+cp bash_profile ~/.bash_profile
 cp init.el ~/.emacs.d/init.el
