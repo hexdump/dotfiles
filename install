@@ -3,10 +3,18 @@
 #
 # [dotfiles/install]
 #
-# My dotfiles installer.
-# Copyright (C) 2018-2019, Liam Schumm.
+# my dotfiles installer.
+# copyright (c) 2018-2019, liam schumm.
 # 
 
-
+echo "installing .bash_profile..."
 cp bash_profile ~/.bash_profile
+
+echo "installing .init.el..."
 cp init.el ~/.emacs.d/init.el
+
+echo "installing ssh_config (will require root password)..."
+sudo cp ssh_config /etc/ssh/ssh_config
+
+echo "installation complete."
+
