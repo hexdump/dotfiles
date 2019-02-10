@@ -1,0 +1,10 @@
+#
+# [~/.gitconfig]
+# 
+# my git configuration file.
+# copyright (c) 2019, liam schumm
+#
+
+[user]
+        name = Liam Schumm
+        email = lschumm@protonmail.com
