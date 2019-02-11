@@ -168,3 +168,18 @@ I like setting my key repeat rate and key repeat time to very fast settings. You
 To use `option` as the meta key in Terminal, enable it in `Terminal > Preferences > Profiles > Keyboard`:
 
 ![Shows the `Terminal > Preferences > Profiles > Keyboard` pane with "Use Option as Meta key" selected"](images/use_option_as_meta_key.png)
+
+## Trackpad configuration
+
+I like to set my trackpad sensitivity very high, and enable tap to click. You can configure this in `System Preferences > Trackpad`:
+
+![The `System Preferences > Trackpad > Point & Click` menu with "Tap to click" enabled and "Tracking speed" set to "Fast".](images/trackpad.png)
+
+## Mouse sensitivity
+
+*Note: you need a mouse connected to configure this.*
+
+I like my mouse sensitivity really high. You can configure this in `System Preferences > Mouse`:
+
+![Shows the `System Preferences > Mouse` menu with "Tracking speed" set to "Fast", and "Scrolling speed" set to "Fast".](images/mouse_sensitivty.png)
+
