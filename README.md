@@ -181,5 +181,11 @@ I like to set my trackpad sensitivity very high, and enable tap to click. You ca
 
 I like my mouse sensitivity really high. You can configure this in `System Preferences > Mouse`:
 
-![Shows the `System Preferences > Mouse` menu with "Tracking speed" set to "Fast", and "Scrolling speed" set to "Fast".](images/mouse_sensitivty.png)
+![Shows the `System Preferences > Mouse` menu with "Tracking speed" set to "Fast", and "Scrolling speed" set to "Fast".](images/mouse_sensitivity.png)
 
+
+## Autocorrect
+
+I hate autocorrect changing and capitalizing my words. This can be changed in the `System Preferences > Keyboard` pane:
+
+![Shows the `System Preferences > Keyboard` menu with "Correct spelling automatically", "Capitalize words automatically", "Add period with double-space", "Use smart quotes and dashes" disabled, and all replacement phrases deleted.](images/keyboard_settings.png)
