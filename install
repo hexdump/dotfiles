@@ -30,4 +30,7 @@ osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \
 echo "supressing terminal login message..."
 touch ~/.hushlogin
 
+echo "ensuring ~/Desktop/.bin folder exists..."
+mkdir -p ~/Desktop/.bin
+
 echo "installation complete."
