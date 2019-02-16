@@ -12,7 +12,7 @@
 # configuration
 #
 
-export PATH="$PATH:/Users/lschumm/Desktop/research/lime"
+export PATH="$PATH:/Users/lschumm/Desktop/.bin"
 export PS1="$ "
 alias ls="ls -1" # always show ls entries on new lines
 
