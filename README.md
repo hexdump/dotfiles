@@ -89,6 +89,7 @@ I like installing apps through `brew cask` because command line stuff is great, 
 ```
 brew cask install telegram
 brew cask install gimp
+brew cask install deluge
 ```
 
 
