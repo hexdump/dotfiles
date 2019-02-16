@@ -27,5 +27,7 @@ cp gitconfig ~/.gitconfig
 echo "setting wallpaper..."
 osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$(pwd)/wallpaper.jpg\""
 
-echo "installation complete."
+echo "supressing terminal login message..."
+touch ~/.hushlogin
 
+echo "installation complete."
