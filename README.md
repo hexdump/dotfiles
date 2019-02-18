@@ -190,9 +190,3 @@ I like my mouse sensitivity really high. You can configure this in `System Prefe
 I hate autocorrect changing and capitalizing my words. This can be changed in the `System Preferences > Keyboard` pane:
 
 ![Shows the `System Preferences > Keyboard` menu with "Correct spelling automatically", "Capitalize words automatically", "Add period with double-space", "Use smart quotes and dashes" disabled, and all replacement phrases deleted.](images/keyboard_settings.png)
-
-## Spellchecking
-
-I don't like spellchecking splattering all my words with ugly red lines. MacOS doesn't let you totally disable spell checking, so I've only enabled it for Norsk (Norwegian):
-
-![Shows the System Preferences > Keyboard > Spelling Checklist with only Norsk (Norwegian) selected](images/spellcheck.png)
