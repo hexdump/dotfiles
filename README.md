@@ -190,3 +190,11 @@ I like my mouse sensitivity really high. You can configure this in `System Prefe
 I hate autocorrect changing and capitalizing my words. This can be changed in the `System Preferences > Keyboard` pane:
 
 ![Shows the `System Preferences > Keyboard` menu with "Correct spelling automatically", "Capitalize words automatically", "Add period with double-space", "Use smart quotes and dashes" disabled, and all replacement phrases deleted.](images/keyboard_settings.png)
+
+## Git Credential Cache Helper
+
+On MacOS, you can set `Keychain.app` as your credential helper for git, so you won't have to keep entering your password:
+
+```
+git config --global credential.helper osxkeychain
+```
