@@ -85,7 +85,7 @@
 ;;
 
 (setq-default indent-tabs-mode nil)
-
+(setq tab-stop-list (number-sequence 4 200 4))
 
 ;;
 ;; when started up, open an empty scratch buffer

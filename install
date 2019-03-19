@@ -5,7 +5,7 @@
 #
 # my dotfiles installer.
 # copyright (c) 2018-2019, liam schumm.
-# 
+#
 
 echo "installing .bash_profile..."
 cp bash_profile ~/.bash_profile
