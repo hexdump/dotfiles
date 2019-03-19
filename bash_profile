@@ -41,3 +41,5 @@ function clear_tw () {
     export LANG=C
     find . -not \( -name .svn -prune -o -name .git -iname "*.(png|svg|jpg)" -prune \) -type f -print0 | xargs -0 sed -i '' -E "s/[[:space:]]*$//"
 }
+
+alias ls="_ls"
