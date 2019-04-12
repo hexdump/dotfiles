@@ -1,6 +1,7 @@
 # OS Installation
 
-- Erase the main disk, erase and rename as `Macintosh HD` and format it as *plain* `APFS`.
+- Erase the main disk, erase and rename as `Macintosh HD` and format it as *encrypted* `APFS`.
+- Make a secondary 40GB partition named `WINDOWS` for pentesting Windows.
 - Then, choose the `Reinstall MacOS` option on the new disk.
 - On installation make sure to choose:
   - "Don't transfer any information now" on the Migration Assistant page
@@ -10,26 +11,12 @@
   - Under "Express Set-Up", choose "Customize Settings"
     - Enable Location Services
     - Disable analytics
-    - Enable Siri
+    - Disable Siri
     - Do not "store files from Documents and Desktop in iCloud Drive"
-  - Enable FileVault
-    - Do not allow iCloud password to unlock the disk
   - Choose Light theme
 
 
 # OS Configuration
-
-## Install XCode
-
-Go into the App Store and download XCode.
-
-To install the XCode command line tools, run:
-
-```
-xcode-select --install
-sudo xcodebuild -license
-```
-
 
 ## Install Homebrew
 
@@ -39,6 +26,7 @@ Use the `brew` default installer.
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+This will install the XCode command line tools as well.
 
 ## Change hostname
 
@@ -198,3 +186,7 @@ On MacOS, you can set `Keychain.app` as your credential helper for git, so you w
 ```
 git config --global credential.helper osxkeychain
 ```
+
+## BootCamp
+
+Download the official Windows ISO file for Windows 10 from Microsoft, run and install Windows 10 Home.
