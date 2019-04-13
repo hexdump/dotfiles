@@ -16,11 +16,6 @@ cp init.el ~/.emacs.d/init.el
 echo "installing ssh_config (will require root password)..."
 sudo cp ssh_config /etc/ssh/ssh_config
 
-echo "installing wakatime (will require api key)..."
-read -p "wakatime api key: " wakatime_api_key
-cp wakatime.cfg ~/.wakatime.cfg
-echo $wakatime_api_key >> ~/.wakatime.cfg
-
 echo "installing gitconfig..."
 cp gitconfig ~/.gitconfig
 
