@@ -42,7 +42,6 @@ To set up your `git` name and email, run
 git config --global --edit
 ```
 
-
 ## Install Python3
 
 MacOS (as of Mojave) installs Python `2.7.10`, which is a *reasonable* version of Python 2 to have. To install Python 3, I recommend `brew`:
@@ -52,7 +51,7 @@ brew install python3
 ```
 
 
-# Install `python2-pip`
+## Install `python2-pip`
 
 When `brew` installed `python3`, it also installed `pip3`. However, MacOS' default version of Python *does not* include pip. It does include `easy_install`, which can be used to install `pip`:
 
@@ -80,36 +79,13 @@ brew cask install gimp
 brew cask install deluge
 ```
 
-
-## Dock Configuration
-
-I personally don't really like the Dock, because it takes up space on my small 11 inch screen. I use Spotlight to open applications, and `Command + Tab` to switch applications/see what's open. This command will set the Dock autohide delay to 1000 seconds, so you have to hover over the bottom of the screen for 1000 seconds to display the dock.
-
-If you *really* need your dock, `Command + Option + D` will manually open it; press it again to hide it.
-
-```
-defaults write com.apple.dock autohide-delay -float 1000; killall Dock
-```
-
-
-## Disabling Gatekeeper
-
-Gatekeeper is that annoying "can't be opened because it is from an unidentified developer" thing. To disaple it, run:
-
-```
-sudo spctl --master-disable
-```
-
-I'm a responsible user and don't download random binaries and execute them; I don't like MacOS second guessing me.
-
-
 ## Setting up File Hierarchy
 
 I actually like to remap my home directory to Desktop, so it's visible on my screen. I remap my `HOME` environment variable to `~/Desktop`.
 
 ```
 mkdir Desktop/research
-mkdir Desktop/blog
+git clone https://github.com/lschumm/blog blog
 ```
 
 ## Run dotfiles installer
@@ -117,27 +93,7 @@ mkdir Desktop/blog
 ```
 cd Desktop
 cd dotfiles
-./INSTALL
-```
-
-## Install wakatime
-
-Install `wakatime` globally using `pip`:
-
-```
-sudo pip install wakatime
-```
-
-Then, install the `wakatime-mode` package in `emacs`. First run:
-
-```
-M-x package-refresh-contents
-```
-
-to fetch the latest versions of packages. Then, install the package:
-
-```
-M-x package-install [RET] wakatime-mode
+./install
 ```
 
 ## Make Finder show all file extensions
