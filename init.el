@@ -25,15 +25,6 @@
       `((".*" ,temporary-file-directory t)))
 
 ;;
-;; package management
-;;
-
-(require 'package)
-
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")))
-(package-initialize)
-
-;;
 ;; make custom not write to init.el, but a seperate file
 ;;
 
@@ -98,26 +89,3 @@
 (setq inhibit-startup-message t)
 (message nil)
 (setq initial-major-mode 'text-mode)
-
-
-;;
-;; hide mode line by setting it to header format (header is hidden)
-;;
-
-(setq header-line-format mode-line-format)
-(setq-default mode-line-format nil)
-(setq-default header-line-format mode-line-format)
-
-
-;;
-;; enable wakatime
-;;
-
-(global-wakatime-mode)
-(custom-set-variables '(wakatime-api-key "92dd49d1-4090-40ef-beb9-e7129c6f252b"))
-
-;;
-;; company mode
-;;
-
-(global-company-mode)
