@@ -15,7 +15,6 @@
     - Do not "store files from Documents and Desktop in iCloud Drive"
   - Choose Light theme
 
-
 # macOS Configuration
 
 Since XCode takes a while to download and install, you can run through the `macOS Configuration` concurrently with the `Development Tools` section.
@@ -84,9 +83,29 @@ If you right click on your desktop and click `Show View Options`, you'll be able
 
 ![The Finder `Show View Options` menu with `Sort By` set to `Snap to Grid`.](images/desktop-view-options.png)
 
-Then, navigate to your home folder (`lschumm` in my case). Right click in this folder, and you'll get another `Show View Options` to show up. This is different from the one on the Desktop, and will allow you to configure defaults for all of your Finder windows as well as display your Library folder by default.
+Then, navigate to your home folder (`lschumm` in my case). Right click in this folder, and you'll get another `Show View Options` to show up. This is different from the one on the Desktop, and will allow you to configure defaults for all of your Finder windows.
 
-![](home-folder-show-view-options.png)
+I've enabled `Always open in icon view`, set `Sort By` to `Snap to Grid`, and checked `Show Library Folder`. To set these options as the system defaults, I clicked `Use as Defaults`.
+
+![The Finder `Show View Options` menu with `Always open in icon view` checked, `Sort By` set to `Snap to Grid` and `Show Library Folder` checked. A `Use as Defaults` button appears at the bottom of the window.](home-folder-show-view-options.png)
+
+### `Finder Preferences > General`
+
+In `Finder Preferences > General`, I've configured `New Finder windows show` to `Desktop`, and unchecked `Open folders in tabs instead of new windows`.
+
+![The `Finder Preferences > General` pane open with `New Finder windows show` set to `Desktop` and `Open folders in tabs instead of new windows` unchecked.](images/finder-preferences-general.png)
+
+### `Finder Preferences > Sidebar`
+
+By default, Finder puts a lot of stuff in the sidebar. I like to strip this down to only folders I frequently use: I've unchecked everything but `AirDrop`, `Applications`, `Desktop`, `Documents`, `Downloads`, `lschumm` (my home folder), and `External disks`.
+
+![The `Finder Preferences > Sidebar` pane open with nothing checked but `AirDrop`, `Applications`, `Desktop`, `Documents`, `Downloads`, `lschumm` (my home folder), and `External disks`.](images/finder-preferences-sidebar.png)
+
+### `Finder Preferences > Advanced`
+
+Under `Finder Preferences > Advanced` I've enabled `Show all filename extensions` and disabled `Show warning before changing an extension`.
+
+![The `Finder Preferences > Advanced` pane open with `Show all filename extensions` checked and `Show warning before changing an extension` unchecked.](images/finder-preferences-advanced.png)
 
 # Development Tools
 
@@ -187,9 +206,9 @@ To use `option` as the meta key in Terminal, enable it in `Terminal > Preference
 
 ## Trackpad configuration
 
-I like to set my trackpad sensitivity very high, and enable tap to click. You can configure this in `System Preferences > Trackpad`:
+Under `Trackpad > Point & Click`, I've enabled `Force Click & haptic feedback` and `Tap to click`.
 
-![The `System Preferences > Trackpad > Point & Click` menu with "Tap to click" enabled and "Tracking speed" set to "Fast".](images/trackpad.png)
+![The `Trackpad > Point & Click` pane with `Force Click & haptic feedback` checked and `Tap to click` checked.](images/trackpad-settings.png)
 
 ## Mouse sensitivity
 
