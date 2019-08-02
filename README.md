@@ -1,4 +1,4 @@
-# OS Installation
+# OS (Re-)Installation
 
 - Erase the main disk, erase and rename as `Macintosh HD` and format it as *encrypted* `APFS`.
 - Make a secondary 40GB partition named `WINDOWS` for pentesting Windows.
@@ -16,23 +16,99 @@
   - Choose Light theme
 
 
-# OS Configuration
+# macOS Configuration
+
+Since XCode takes a while to download and install, you can run through the `macOS Configuration` concurrently with the `Development Tools` section.
+
+## Set Accent Color & Miscellany
+
+![The `System Preferences > General` preference pane open with the options detailed below selected.](images/general.png)
+
+In `Settings > General`, I like to set my accent and highlight colors to yellow.
+
+Other things I've configured here as different from the default:
+
+- `Sidebar icon size` set to `Medium`: I like big icons, especially on my Retina screen.
+- `Automatically hide and show the menu bar` is checked: I think my mac looks cleaner this way.
+- `Show scroll bars` set to `When scrolling`: having the scrollbar while you're not scrolling seems redundant to me, and looks ugly on my `Terminal` windows.
+- `Click in the scroll bar to` set to `Jump to the spot that's clicked`: I personally think this makes more sense than the alternative.
+- `Ask to keep changes when closing documents` is checked.
+- `Close windows when quitting an app` is checked! I hate when I reopen an application and I have a ton of old windows pop up that I have to close.
+- `Recent items` is set to `None`. I don't use the `Recent Items` feature on my mac since launching programs or documents with my keyboard is faster.
+
+## Black Borders
+
+There's a setting in macOS's `Accessibility > Display` pane to `Increase contrast`. This gives you super sweet black borders on windows and popups that I really like. Clicking `Increase contrast` will also select `Reduce transparency`.
+
+![The `Accessibility > Display` pane open with `Increase contrast` checked and `Reduce transparency` checked and greyed out to indicate you can't uncheck it.](images/black-borders.png)
+ 
+## Dock
+
+I like automatically hiding my dock because I think it looks clean, and saves screen real estate.
+
+![The `Dock` preference pane open with `Automatically hide and show the Dock` unselected.](images/hide-dock.png)
+
+## Keyboard
+
+### `Keyboard > Keyboard`
+
+I love speedy key repeat rates. I've set `Key Repeat` to the fastest setting, and `Delay Until Repeat` to the shortest setting.
+
+![Shows the `System Preferences > Keyboard > Keyboard` menu with "Key Repeat" set to the "Fast" setting, and "Delay Until Repeat" set to the "Short" setting.](images/key-repeat.png)
+
+### `Keyboard > Modifier Keys`
+
+Since I use `emacs`, I have to keep my emacs pinky in check (seriously, after starting a summer intership I started to get it within a week). I've swapped my `Caps Lock` and `Control` keys globally. *Note that* this will not apply to other keyboards than the one you have selected in `Select keyboard`.
+
+![The `Keyboard > Modifier Keys` pane open with `Caps Lock` and `Control` swapped.](images/remap-control.png)
+
+### `Keyboard > Text`
+
+*"On my way!"* - Literally nobody, ever.
+
+I really really dislike my computer changing what I type. I've disabled all automatic options under `Text`. Unfortunately, spellchecking can only be disabled on a per-application basis.
+
+![The `Keyboard > Text` pane open with `Correct spelling automatically`, `Capitalize words automatically`, `Add periods with double-space`, and `Use smart quotes and dashes` all unselected. The `Replace/With` table is empty.](images/disable-autocorrect.png)
+
+## Change hostname
+
+Under `System Preferences > Sharing`, change the hostname to the preferred name of your machine:
+
+![The `Sharing` preferences pane with the text of the `Computer Name` field set to my computer name: `omi`,](images/change-hostname.png)
+
+## Finder
+
+### Desktop View Options
+
+If you right click on your desktop and click `Show View Options`, you'll be able to set Finder's view options for the Desktop. For *everything* in Finder, I like to have `Sort By` set to `Snap to Grid`, since it lets you organize files how you like but also keeps them neat.
+
+![The Finder `Show View Options` menu with `Sort By` set to `Snap to Grid`.](images/desktop-view-options.png)
+
+Then, navigate to your home folder (`lschumm` in my case). Right click in this folder, and you'll get another `Show View Options` to show up. This is different from the one on the Desktop, and will allow you to configure defaults for all of your Finder windows as well as display your Library folder by default.
+
+![](home-folder-show-view-options.png)
+
+# Development Tools
+
+## Install XCode
+
+Install XCode from the Mac App Store. After it's installed and you've opened it for the first time, run:
+
+```bash
+$ xcode-select --install
+```
+
+to install the command line tools.
 
 ## Install Homebrew
 
-Use the `brew` default installer.
+Use the `brew` default installer, found at `https://brew.sh`:
 
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-This will install the XCode command line tools as well.
-
-## Change hostname
-
-Under `System Preferences > Sharing`, change the hostname to the preferred name of your machine (I use the last names of famous computer scientists):
-
-![Shows the Computer Name field of the Sharing preferences pane with the text set to my computer name: `dijkstra`](images/change_hostname.png)
+I like to install everything from system utilities to applications through `brew`.
 
 ## Set up Git credentials
 
@@ -62,12 +138,11 @@ sudo easy_install pip
 
 ## Install the latest version of Emacs
 
-MacOS (as of Mojave) installs Emacs `22.1.1`, which is ancient. Install `emacs26` with `brew`:
+MacOS (as of Mojave) installs Emacs `22.1.1`, which is ancient; probably because of it moving to GPLv3 `:(`. Install `emacs26` with `brew`:
 
 ```
 brew install emacs
 ```
-
 
 ## App Installation
 
@@ -102,11 +177,7 @@ Not showing file extensions on some files is really needlessly confusing. Disabl
 
 ![Shows the `Finder > Prefences` pane with "Show all filename extensions" selected, and "Show warning before changing an extension" unselected.](images/finder_preferences.png)
 
-## Set key repeat rate
-
-I like setting my key repeat rate and key repeat time to very fast settings. You can set this under `System Preferences > Keyboard > Keyboard`.
-
-![Shows the `System Preferences > Keyboard > Keyboard` menu with "Key Repeat" set to the "Fast" setting, and "Delay Until Repeat" set to the "Short" setting.](images/key_repeat.png)
+- also make finder "Search the Current Folder"
 
 ## Enable meta key in terminal
 
@@ -129,12 +200,6 @@ I like my mouse sensitivity really high. You can configure this in `System Prefe
 ![Shows the `System Preferences > Mouse` menu with "Tracking speed" set to "Fast", and "Scrolling speed" set to "Fast".](images/mouse_sensitivity.png)
 
 
-## Autocorrect
-
-I hate autocorrect changing and capitalizing my words. This can be changed in the `System Preferences > Keyboard` pane:
-
-![Shows the `System Preferences > Keyboard` menu with "Correct spelling automatically", "Capitalize words automatically", "Add period with double-space", "Use smart quotes and dashes" disabled, and all replacement phrases deleted.](images/keyboard_settings.png)
-
 ## Git Credential Cache Helper
 
 On MacOS, you can set `Keychain.app` as your credential helper for git, so you won't have to keep entering your password:
@@ -142,7 +207,3 @@ On MacOS, you can set `Keychain.app` as your credential helper for git, so you w
 ```
 git config --global credential.helper osxkeychain
 ```
-
-## BootCamp
-
-Download the official Windows ISO file for Windows 10 from Microsoft, run and install Windows 10 Home.
