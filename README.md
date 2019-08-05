@@ -190,19 +190,13 @@ cd dotfiles
 ./install
 ```
 
-## Make Finder show all file extensions
-
-Not showing file extensions on some files is really needlessly confusing. Disable it in `Finder > Preferences`. I also like disabling warnings when changing extensions.
-
-![Shows the `Finder > Prefences` pane with "Show all filename extensions" selected, and "Show warning before changing an extension" unselected.](images/finder_preferences.png)
-
-- also make finder "Search the Current Folder"
+## Enable zsh as default shell
 
 ## Enable meta key in terminal
 
 To use `option` as the meta key in Terminal, enable it in `Terminal > Preferences > Profiles > Keyboard`:
 
-![Shows the `Terminal > Preferences > Profiles > Keyboard` pane with "Use Option as Meta key" selected"](images/use_option_as_meta_key.png)
+![Shows the `Terminal > Preferences > Profiles > Keyboard` pane with "Use Option as Meta key" selected"](images/use-option-as-meta-key.png)
 
 ## Trackpad configuration
 
@@ -225,4 +219,19 @@ On MacOS, you can set `Keychain.app` as your credential helper for git, so you w
 
 ```
 git config --global credential.helper osxkeychain
+```
+## Install gnupg
+
+You need `gnupg` on macOS in order to download from the ELPA package archive for emacs.
+
+```brew
+$ brew install gpg
+```
+
+## Install java
+
+`brew cask` will allow you install the latest version of the Java JDK:
+
+```bash
+$ brew cask install java
 ```
