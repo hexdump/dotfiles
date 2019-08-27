@@ -6,7 +6,7 @@ First, install `nvm` through `brew`:
 brew install nvm
 ```
 
-Then, install the latest version of node.js with:
+Then, install the latest version of `node` and `npm` with:
 
 ```bash
 nvm install node
