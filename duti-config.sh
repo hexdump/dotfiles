@@ -8,7 +8,6 @@
 # Copyright (C) 2019, Liam Schumm
 #
 
-
 EDITOR_BUNDLE_ID="com.apple.automator.emacs-cli-hook"
 
 cat file-extensions.txt \

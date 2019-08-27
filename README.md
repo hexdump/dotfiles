@@ -1,7 +1,6 @@
 # OS (Re-)Installation
 
 - Erase the main disk, erase and rename as `Macintosh HD` and format it as *encrypted* `APFS`.
-- Make a secondary 40GB partition named `WINDOWS` for pentesting Windows.
 - Then, choose the `Reinstall MacOS` option on the new disk.
 - On installation make sure to choose:
   - "Don't transfer any information now" on the Migration Assistant page
@@ -74,6 +73,17 @@ I really really dislike my computer changing what I type. I've disabled all auto
 Under `System Preferences > Sharing`, change the hostname to the preferred name of your machine:
 
 ![The `Sharing` preferences pane with the text of the `Computer Name` field set to my computer name: `omi`,](images/change-hostname.png)
+
+## Disable automatic space switching
+
+On macOS, if you open an application that already has windows open on
+spaces other than the one you are currently on, it will automatically
+switch to the space with that application open. Disabling this also
+falls into the category of "computer, please don't do things I don't
+want you to do". This option can be set in `System Preferences > Mission Control`,
+by unchecking `When switching to an application, switch to a Space with open windows for the application`.
+
+![The `System Preferences > Mission Control` pane open with `When switching to an application, switch to a Space with open windows for the application` unselected.](images/disable-auto-swoosh.png)
 
 ## Finder
 
@@ -204,15 +214,6 @@ Under `Trackpad > Point & Click`, I've enabled `Force Click & haptic feedback` a
 
 ![The `Trackpad > Point & Click` pane with `Force Click & haptic feedback` checked and `Tap to click` checked.](images/trackpad-settings.png)
 
-## Mouse sensitivity
-
-*Note: you need a mouse connected to configure this.*
-
-I like my mouse sensitivity really high. You can configure this in `System Preferences > Mouse`:
-
-![Shows the `System Preferences > Mouse` menu with "Tracking speed" set to "Fast", and "Scrolling speed" set to "Fast".](images/mouse_sensitivity.png)
-
-
 ## Git Credential Cache Helper
 
 On MacOS, you can set `Keychain.app` as your credential helper for git, so you won't have to keep entering your password:
@@ -220,6 +221,7 @@ On MacOS, you can set `Keychain.app` as your credential helper for git, so you w
 ```
 git config --global credential.helper osxkeychain
 ```
+
 ## Install gnupg
 
 You need `gnupg` on macOS in order to download from the ELPA package archive for emacs.
@@ -286,6 +288,3 @@ CREATE ROLE
 myusername=# alter user postgres SUPERUSER CREATEROLE CREATEDB REPLICATION BYPASSRLS
 ALTER ROLE
 ```
-
-<!-- - update key mapping! no more caps lock for the sake of `Ctrl+Tab` -->
-<!-- - duti -->
