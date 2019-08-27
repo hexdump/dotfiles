@@ -20,7 +20,7 @@ Since XCode takes a while to download and install, you can run through the `macO
 
 ## Set Accent Color & Miscellany
 
-![The `System Preferences > General` preference pane open with the options detailed below selected.](images/general.png)
+<img alt="The `System Preferences > General` preference pane open with the options detailed below selected." src="images/general.png" width="250"/>
 
 In `Settings > General`, I like to set my accent and highlight colors to yellow.
 
@@ -38,13 +38,13 @@ Other things I've configured here as different from the default:
 
 There's a setting in macOS's `Accessibility > Display` pane to `Increase contrast`. This gives you super sweet black borders on windows and popups that I really like. Clicking `Increase contrast` will also select `Reduce transparency`.
 
-![The `Accessibility > Display` pane open with `Increase contrast` checked and `Reduce transparency` checked and greyed out to indicate you can't uncheck it.](images/black-borders.png)
+<img alt="The `Accessibility > Display` pane open with `Increase contrast` checked and `Reduce transparency` checked and greyed out to indicate you can't uncheck it." src="images/black-borders.png" width="250"/>
  
 ## Dock
 
 I like automatically hiding my dock because I think it looks clean, and saves screen real estate.
 
-![The `Dock` preference pane open with `Automatically hide and show the Dock` unselected.](images/hide-dock.png)
+<img alt="The `Dock` preference pane open with `Automatically hide and show the Dock` unselected." src="images/hide-dock.png" width="250"/>
 
 ## Keyboard
 
@@ -52,13 +52,13 @@ I like automatically hiding my dock because I think it looks clean, and saves sc
 
 I love speedy key repeat rates. I've set `Key Repeat` to the fastest setting, and `Delay Until Repeat` to the shortest setting.
 
-![Shows the `System Preferences > Keyboard > Keyboard` menu with "Key Repeat" set to the "Fast" setting, and "Delay Until Repeat" set to the "Short" setting.](images/key-repeat.png)
+<img alt="Shows the `System Preferences > Keyboard > Keyboard` menu with "Key Repeat" set to the "Fast" setting, and "Delay Until Repeat" set to the "Short" setting." src="images/key-repeat.png" width="250"/>
 
 ### `Keyboard > Modifier Keys`
 
 Since I use `emacs`, I have to keep my emacs pinky in check (seriously, after starting a summer intership I started to get it within a week). I've swapped my `Caps Lock` and `Control` keys globally. *Note that* this will not apply to other keyboards than the one you have selected in `Select keyboard`.
 
-![The `Keyboard > Modifier Keys` pane open with `Caps Lock` and `Control` swapped.](images/remap-control.png)
+<img alt="The `Keyboard > Modifier Keys` pane open with `Caps Lock` and `Control` swapped." src="images/remap-control.png" width="250"/>
 
 ### `Keyboard > Text`
 
@@ -66,13 +66,13 @@ Since I use `emacs`, I have to keep my emacs pinky in check (seriously, after st
 
 I really really dislike my computer changing what I type. I've disabled all automatic options under `Text`. Unfortunately, spellchecking can only be disabled on a per-application basis.
 
-![The `Keyboard > Text` pane open with `Correct spelling automatically`, `Capitalize words automatically`, `Add periods with double-space`, and `Use smart quotes and dashes` all unselected. The `Replace/With` table is empty.](images/disable-autocorrect.png)
+<img alt="The `Keyboard > Text` pane open with `Correct spelling automatically`, `Capitalize words automatically`, `Add periods with double-space`, and `Use smart quotes and dashes` all unselected. The `Replace/With` table is empty." src="images/disable-autocorrect.png" width="250"/>
 
 ## Change hostname
 
 Under `System Preferences > Sharing`, change the hostname to the preferred name of your machine:
 
-![The `Sharing` preferences pane with the text of the `Computer Name` field set to my computer name: `omi`,](images/change-hostname.png)
+<img alt="The `Sharing` preferences pane with the text of the `Computer Name` field set to my computer name: `omi`," src="images/change-hostname.png" width="250"/>
 
 ## Disable automatic space switching
 
@@ -83,7 +83,7 @@ falls into the category of "computer, please don't do things I don't
 want you to do". This option can be set in `System Preferences > Mission Control`,
 by unchecking `When switching to an application, switch to a Space with open windows for the application`.
 
-![The `System Preferences > Mission Control` pane open with `When switching to an application, switch to a Space with open windows for the application` unselected.](images/disable-auto-swoosh.png)
+<img alt="The `System Preferences > Mission Control` pane open with `When switching to an application, switch to a Space with open windows for the application` unselected." src="images/disable-auto-swoosh.png" width="250"/>
 
 ## Finder
 
@@ -91,31 +91,31 @@ by unchecking `When switching to an application, switch to a Space with open win
 
 If you right click on your desktop and click `Show View Options`, you'll be able to set Finder's view options for the Desktop. For *everything* in Finder, I like to have `Sort By` set to `Snap to Grid`, since it lets you organize files how you like but also keeps them neat.
 
-![The Finder `Show View Options` menu with `Sort By` set to `Snap to Grid`.](images/desktop-view-options.png)
+<img alt="The Finder `Show View Options` menu with `Sort By` set to `Snap to Grid`." src="images/desktop-view-options.png" width="250"/>
 
 Then, navigate to your home folder (`lschumm` in my case). Right click in this folder, and you'll get another `Show View Options` to show up. This is different from the one on the Desktop, and will allow you to configure defaults for all of your Finder windows.
 
 I've enabled `Always open in icon view`, set `Sort By` to `Snap to Grid`, and checked `Show Library Folder`. To set these options as the system defaults, I clicked `Use as Defaults`.
 
-![The Finder `Show View Options` menu with `Always open in icon view` checked, `Sort By` set to `Snap to Grid` and `Show Library Folder` checked. A `Use as Defaults` button appears at the bottom of the window.](home-folder-show-view-options.png)
+<img alt="The Finder `Show View Options` menu with `Always open in icon view` checked, `Sort By` set to `Snap to Grid` and `Show Library Folder` checked. A `Use as Defaults` button appears at the bottom of the window." src="home-folder-show-view-options.png" width="250"/>
 
 ### `Finder Preferences > General`
 
 In `Finder Preferences > General`, I've configured `New Finder windows show` to `Desktop`, and unchecked `Open folders in tabs instead of new windows`.
 
-![The `Finder Preferences > General` pane open with `New Finder windows show` set to `Desktop` and `Open folders in tabs instead of new windows` unchecked.](images/finder-preferences-general.png)
+<img alt="The `Finder Preferences > General` pane open with `New Finder windows show` set to `Desktop` and `Open folders in tabs instead of new windows` unchecked." src="images/finder-preferences-general.png" width="250"/>
 
 ### `Finder Preferences > Sidebar`
 
 By default, Finder puts a lot of stuff in the sidebar. I like to strip this down to only folders I frequently use: I've unchecked everything but `AirDrop`, `Applications`, `Desktop`, `Documents`, `Downloads`, `lschumm` (my home folder), and `External disks`.
 
-![The `Finder Preferences > Sidebar` pane open with nothing checked but `AirDrop`, `Applications`, `Desktop`, `Documents`, `Downloads`, `lschumm` (my home folder), and `External disks`.](images/finder-preferences-sidebar.png)
+<img alt="The `Finder Preferences > Sidebar` pane open with nothing checked but `AirDrop`, `Applications`, `Desktop`, `Documents`, `Downloads`, `lschumm` (my home folder), and `External disks`." src="images/finder-preferences-sidebar.png" width="250"/>
 
 ### `Finder Preferences > Advanced`
 
 Under `Finder Preferences > Advanced` I've enabled `Show all filename extensions` and disabled `Show warning before changing an extension`.
 
-![The `Finder Preferences > Advanced` pane open with `Show all filename extensions` checked and `Show warning before changing an extension` unchecked.](images/finder-preferences-advanced.png)
+<img alt="The `Finder Preferences > Advanced` pane open with `Show all filename extensions` checked and `Show warning before changing an extension` unchecked." src="images/finder-preferences-advanced.png" width="250"/>
 
 # Development Tools
 
@@ -183,28 +183,19 @@ brew cask install gimp
 brew cask install deluge
 ```
 
-## Setting up File Hierarchy
-
-I actually like to remap my home directory to Desktop, so it's visible on my screen. I remap my `HOME` environment variable to `~/Desktop`.
-
-```
-mkdir Desktop/research
-git clone https://github.com/lschumm/blog blog
-```
-
 ## Enable zsh as default shell
 
 ## Enable meta key in terminal
 
 To use `option` as the meta key in Terminal, enable it in `Terminal > Preferences > Profiles > Keyboard`:
 
-![Shows the `Terminal > Preferences > Profiles > Keyboard` pane with "Use Option as Meta key" selected"](images/use-option-as-meta-key.png)
+<img alt="Shows the `Terminal > Preferences > Profiles > Keyboard` pane with "Use Option as Meta key" selected"" src="images/use-option-as-meta-key.png" width="250"/>
 
 ## Trackpad configuration
 
 Under `Trackpad > Point & Click`, I've enabled `Force Click & haptic feedback` and `Tap to click`.
 
-![The `Trackpad > Point & Click` pane with `Force Click & haptic feedback` checked and `Tap to click` checked.](images/trackpad-settings.png)
+<img alt="The `Trackpad > Point & Click` pane with `Force Click & haptic feedback` checked and `Tap to click` checked." src="images/trackpad-settings.png" width="250"/>
 
 ## Git Credential Cache Helper
 
@@ -216,7 +207,8 @@ git config --global credential.helper osxkeychain
 
 ## Install gnupg
 
-You need `gnupg` on macOS in order to download from the ELPA package archive for emacs.
+You need `gnupg` on macOS in order to download from the ELPA package
+archive for emacs.
 
 ```brew
 $ brew install gpg
