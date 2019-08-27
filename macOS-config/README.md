@@ -185,11 +185,18 @@ brew cask install deluge
 
 ## Enable zsh as default shell
 
+`zsh` is marginally better than `bash`. Set it as the default in the
+`Terminal > Preferences > Profiles > Shell` tab, under `Run command:`:
+
+<img alt="Shows the `Terminal > Preferences > Profiles > Shell` pane with `Run command:` set to `zsh --login` and `Run inside shell` deselected." src="images/set-zsh-as-default-shell.png" height="600"/>
+
+Disable `Run inside shell`; `zsh` can be used properly as a login shell.
+
 ## Enable meta key in terminal
 
 To use `option` as the meta key in Terminal, enable it in `Terminal > Preferences > Profiles > Keyboard`:
 
-<img alt="Shows the `Terminal > Preferences > Profiles > Keyboard` pane with "Use Option as Meta key" selected"" src="images/use-option-as-meta-key.png" height="600"/>
+<img alt="Shows the `Terminal > Preferences > Profiles > Keyboard` pane with `Use Option as Meta key` selected" src="images/use-option-as-meta-key.png" height="600"/>
 
 ## Trackpad configuration
 
@@ -213,12 +220,3 @@ archive for emacs.
 ```brew
 $ brew install gpg
 ```
-
-## Install java
-
-`brew cask` will allow you install the latest version of the Java JDK:
-
-```bash
-$ brew cask install java
-```
-
