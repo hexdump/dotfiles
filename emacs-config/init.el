@@ -110,6 +110,8 @@
       scroll-conservatively  10000)
 
 
+(setq load-path (cons "~/.emacs.d/lib/" load-path))
+
 (require 'xclip)
 (require 'multiple-cursors)
 (require 'fill-column-indicator)
@@ -117,7 +119,6 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'after-init-hook 'xclip-mode)
 
-(setq load-path (cons "~/.emacs.d/lib/" load-path))
 
 (add-hook 'after-change-major-mode-hook 'fci-mode)
 (add-hook 'after-change-major-mode-hook 'xclip-mode)
