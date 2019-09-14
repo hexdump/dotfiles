@@ -39,7 +39,7 @@ Other things I've configured here as different from the default:
 There's a setting in macOS's `Accessibility > Display` pane to `Increase contrast`. This gives you super sweet black borders on windows and popups that I really like. Clicking `Increase contrast` will also select `Reduce transparency`.
 
 <img alt="The `Accessibility > Display` pane open with `Increase contrast` checked and `Reduce transparency` checked and greyed out to indicate you can't uncheck it." src="images/black-borders.png" height="600"/>
- 
+
 ## Dock
 
 I like automatically hiding my dock because I think it looks clean, and saves screen real estate.
@@ -97,7 +97,11 @@ Then, navigate to your home folder (`lschumm` in my case). Right click in this f
 
 I've enabled `Always open in icon view`, set `Sort By` to `Snap to Grid`, and checked `Show Library Folder`. To set these options as the system defaults, I clicked `Use as Defaults`.
 
+I've set the background to the color `#FFF9E6`.
+
 <img alt="The Finder `Show View Options` menu with `Always open in icon view` checked, `Sort By` set to `Snap to Grid` and `Show Library Folder` checked. A `Use as Defaults` button appears at the bottom of the window." src="images/home-folder-show-view-options.png" height="600"/>
+
+
 
 ### `Finder Preferences > General`
 
