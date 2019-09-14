@@ -257,10 +257,18 @@ archive for emacs.
 $ brew install gpg
 ```
 
+## Set up `ssh` key
+
+To generate an `ssh` keypair, just run:
+
+```shell
+$ ssh-keygen
+```
+
 ## Globally ignore .DS_Store files
 
 
-Once you've copied my `.gitignore` file to your home directory, run the following command:
+Once you've copied my `gitignore-global` file to `~/.gitignore` (rename the file), run the following command:
 
 ```bash
 $ git config --global core.excludesfile ~/.gitignore
