@@ -212,7 +212,7 @@ Under `Trackpad > Point & Click`, I've enabled `Force Click & haptic feedback` a
 
 On MacOS, you can set `Keychain.app` as your credential helper for git, so you won't have to keep entering your password:
 
-```
+```bash
 git config --global credential.helper osxkeychain
 ```
 
@@ -221,6 +221,15 @@ git config --global credential.helper osxkeychain
 You need `gnupg` on macOS in order to download from the ELPA package
 archive for emacs.
 
-```brew
+```bash
 $ brew install gpg
+```
+
+## Globally ignore .DS_Store files
+
+
+Once you've copied my `.gitignore` file to your home directory, run the following command:
+
+```bash
+$ git config --global core.excludesfile ~/.gitignore
 ```
