@@ -1,7 +1,3 @@
-
-
-
-
 # OS (Re-)Installation
 
 - Erase the main disk, erase and rename as `Macintosh HD` and format it as *encrypted* `APFS`.
@@ -66,13 +62,13 @@ I like automatically hiding my dock because I think it looks clean, and saves sc
 
 I love speedy key repeat rates. I've set `Key Repeat` to the fastest setting, and `Delay Until Repeat` to the shortest setting.
 
-<img alt="Shows the `System Preferences > Keyboard > Keyboard` menu with "Key Repeat" set to the "Fast" setting, and "Delay Until Repeat" set to the "Short" setting." src="images/key-repeat.png" height="600"/>
+<img alt="Shows the `System Preferences > Keyboard > Keyboard` menu with `Key Repeat` set to the `Fast` setting and `Delay Until Repeat` set to the `Short` setting." src="images/key-repeat.png" height="600"/>
 
 ### `Keyboard > Modifier Keys`
 
-Since I use `emacs`, I have to keep my emacs pinky in check (seriously, after starting a summer intership I started to get it within a week). I've swapped my `Caps Lock` and `Control` keys globally. *Note that* this will not apply to other keyboards than the one you have selected in `Select keyboard`.
+Since I use `emacs`, I have to keep my emacs pinky in check (seriously, after starting a summer intership I started to get it within a week). I've remapped my `Caps Lock` to `Control` globally. *Note that* this will not apply to other keyboards than the one you have selected in `Select keyboard`.
 
-<img alt="The `Keyboard > Modifier Keys` pane open with `Caps Lock` and `Control` swapped." src="images/remap-control.png" height="600"/>
+<img alt="The `Keyboard > Modifier Keys` pane open with `Caps Lock` set to `Control`." src="images/remap-control.png" height="600"/>
 
 ### `Keyboard > Text`
 
@@ -131,9 +127,9 @@ By default, Finder puts a lot of stuff in the sidebar. I like to strip this down
 
 ### `Finder Preferences > Advanced`
 
-Under `Finder Preferences > Advanced` I've enabled `Show all filename extensions` and disabled `Show warning before changing an extension`.
+Under `Finder Preferences > Advanced` I've enabled `Show all filename extensions` and disabled `Show warning before changing an extension`. `When performing a search:` is set to `Search the Current Folder`.
 
-<img alt="The `Finder Preferences > Advanced` pane open with `Show all filename extensions` checked and `Show warning before changing an extension` unchecked." src="images/finder-preferences-advanced.png" height="600"/>
+<img alt="The `Finder Preferences > Advanced` pane open with `Show all filename extensions` checked and `Show warning before changing an extension` unchecked. `When performing a search:` is set to `Search the Current Folder`." src="images/finder-preferences-advanced.png" height="600"/>
 
 # Development Tools
 
@@ -152,7 +148,7 @@ to install the command line tools.
 Use the `brew` default installer, found at `https://brew.sh`:
 
 ```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 I like to install everything from system utilities to applications through `brew`.
@@ -162,24 +158,16 @@ I like to install everything from system utilities to applications through `brew
 To set up your `git` name and email, run
 
 ```
-git config --global --edit
+$ EDITOR=nano git config --global --edit
 ```
 
 ## Install Python3
 
-MacOS (as of Mojave) installs Python `2.7.10`, which is a *reasonable* version of Python 2 to have. To install Python 3, I recommend `brew`:
+macOS Catalina has officially deprecated the system Python executable, and will complain if you run it. I recommend you install `python3` through `brew`:
 
-```
-brew install python3
-```
+```shell
 
-
-## Install `python2-pip`
-
-When `brew` installed `python3`, it also installed `pip3`. However, MacOS' default version of Python *does not* include pip. It does include `easy_install`, which can be used to install `pip`:
-
-```
-sudo easy_install pip
+$ brew install python3
 ```
 
 
@@ -267,13 +255,17 @@ $ ssh-keygen
 
 ## Globally ignore .DS_Store files
 
-
 Once you've copied my `gitignore-global` file to `~/.gitignore` (rename the file), run the following command:
 
 ```bash
 $ git config --global core.excludesfile ~/.gitignore
 ```
 
+## Hide all desktop icons
+
+```shell
+$ defaults write com.apple.finder CreateDesktop false && killall Finder
+```
 
 
 # Application Installs
