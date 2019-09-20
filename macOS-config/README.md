@@ -267,7 +267,6 @@ $ git config --global core.excludesfile ~/.gitignore
 $ defaults write com.apple.finder CreateDesktop false && killall Finder
 ```
 
-
 # Application Installs
 
 I try to do all my installs through `brew` when possible.
@@ -275,13 +274,13 @@ I try to do all my installs through `brew` when possible.
 ##  Command-Line Applications
 
 ```
-$ brew install emacs python3
+$ brew install emacs python3 rust
 ```
 
 ## Userland Applications
 
 ```shell
-$ brew cask install telegram typora kitty
+$ brew cask install telegram typora kitty protonvpn spotify vlx deluge
 ```
 
 ## macOS Catalina New Unsigned Application Message
