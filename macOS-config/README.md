@@ -238,8 +238,6 @@ $ defaults write com.apple.finder CreateDesktop false && killall Finder
 
 # Application Installs
 
-I try to do all my installs through `brew` when possible.
-
 ##  Command-Line Applications
 
 ```
@@ -271,6 +269,6 @@ In `System Preferences > General`, set the default browser to Firefox.
 
 Catalina has a new notification for when application signing isn't verified by Apple. It looks a lot scarier, and freaked me out the first time I saw it:
 
-![A system notification with the title `"kitty" can't be opened because Apple cannot check it for malicious software.` and the body `This software needs to be updated. Contact the deceloper for more information. Homebrew Cask downloaded this file today at 1:12 PM from github.com.`](images/dotfiles/macOS-config/images/cant-scan-for-malicious-software.png)
+![A system notification with the title `"kitty" can't be opened because Apple cannot check it for malicious software.` and the body `This software needs to be updated. Contact the developer for more information. Homebrew Cask downloaded this file today at 1:12 PM from github.com.`](images/cant-scan-for-malicious-software.png)
 
 Nothing's changed except the message. To open these applications for the first time, just find the application and right-click to open it.
