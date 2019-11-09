@@ -184,23 +184,6 @@ Under `Trackpad > Point & Click`, I've enabled `Force Click & haptic feedback` a
 
 <img alt="The `Trackpad > Point & Click` pane with `Force Click & haptic feedback` checked and `Tap to click` checked." src="images/trackpad-settings.png" height="600"/>
 
-## OS Permissions
-
-During the course of your installation, it's likely you'll get a bunch of notifications that look like this:
-
-![Example notification with the title `"Calendar" would like to use your current location`, the text `Your location is required to provide you with improved location searches and travel time estimates.`, and the options `Don't Allow` and `OK`.](images/example-permissions-notification.png)
-
-You can click either, since you can configure these later. My permissions for current location look like:
-
-![The `System Preferences > Security & Privacy > Privacy` pane open, with `Calendar` deselected and `Find My` and `Siri & Dicatation` selected.](images/location-services-permissions.png)
-
-Important thing to note–in the `Details...` section under `System Services`, there's granular permissions that show Apple is doing some shady advertising... I've disabled `Location-Based Suggestions`, `Significant Locations`, `Location-Based Apple Ads`, and `HomeKit` (because I don't use HomeKit).
-
-![The `System Preferences > Security & Privacy > Privacy` pane open, with the `Details...` menu of `System Services` opened. I have unchecked `Location-Based Suggestions`, `Significant Locations`, `Location-Based Apple Ads`, and `HomeKit`.](images/system-services-location-preferences.png)
-
-In order to not get a billion notifications about whether your terminal is allowed to access folders, you should add your preferred terminal emulator (I've added the default `Terminal.app` as well) to the list of applications with `Full Disk Access` in the `System Preferences > Security & Privacy > Privacy` menu.
-
-![The `System Preferences > Security & Privacy > Privacy` menu open with `Full Disk Access` selected. `Terminal` and `kitty` are both checked, `Xcode` is in the list but is not.](/Users/lschumm/Desktop/dotfiles/macOS-config/images/full-disk-access.png)
 
 ## Git Credential Cache Helper
 
@@ -263,7 +246,8 @@ $ brew cask install telegram \
 		    vlc \
 		    deluge \
 		    firefox \
-		    karabiner-elements
+		    karabiner-elements \
+		    alfred
 ```
 
 ## Set Firefox as the Default Browser
@@ -277,3 +261,23 @@ Catalina has a new notification for when application signing isn't verified by A
 ![A system notification with the title `"kitty" can't be opened because Apple cannot check it for malicious software.` and the body `This software needs to be updated. Contact the developer for more information. Homebrew Cask downloaded this file today at 1:12 PM from github.com.`](images/cant-scan-for-malicious-software.png)
 
 Nothing's changed except the message. To open these applications for the first time, just find the application and right-click to open it.
+
+## OS Permissions
+
+During the course of your installation, it's likely you'll get a bunch of notifications that look like this:
+
+![Example notification with the title `"Calendar" would like to use your current location`, the text `Your location is required to provide you with improved location searches and travel time estimates.`, and the options `Don't Allow` and `OK`.](images/example-permissions-notification.png)
+
+You can click either, since you can configure these later. My permissions for current location look like:
+
+![The `System Preferences > Security & Privacy > Privacy` pane open, with `Calendar` deselected and `Find My` and `Siri & Dicatation` selected.](images/location-services-permissions.png)
+
+Important thing to note–in the `Details...` section under `System Services`, there's granular permissions that show Apple is doing some shady advertising... I've disabled `Location-Based Suggestions`, `Significant Locations`, `Location-Based Apple Ads`, and `HomeKit` (because I don't use HomeKit).
+
+![The `System Preferences > Security & Privacy > Privacy` pane open, with the `Details...` menu of `System Services` opened. I have unchecked `Location-Based Suggestions`, `Significant Locations`, `Location-Based Apple Ads`, and `HomeKit`.](images/system-services-location-preferences.png)
+
+In order to not get a billion notifications about whether your terminal is allowed to access folders, you should add your preferred terminal emulator to the list of applications with `Full Disk Access` in the `System Preferences > Security & Privacy > Privacy` menu.
+
+Alfred also needs full disk access in order to index applications and files.
+
+![The `System Preferences > Security & Privacy > Privacy` menu open with `Full Disk Access` selected. `Alfred 4.app` and `kitty` are the only options, are both checked.](images/full-disk-access.png)
