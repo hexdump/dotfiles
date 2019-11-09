@@ -281,3 +281,13 @@ In order to not get a billion notifications about whether your terminal is allow
 Alfred also needs full disk access in order to index applications and files.
 
 ![The `System Preferences > Security & Privacy > Privacy` menu open with `Full Disk Access` selected. `Alfred 4.app` and `kitty` are the only options, are both checked.](images/full-disk-access.png)
+
+For input monitoring, we need to enable Karabiner. The executables `karabiner_grabber` and `karabiner_observer` are in `/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_grabber` and `/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_observer`, respectively. Add these to the Input Monitoring section:
+
+ ![The `System Preferences > Security & Privacy > Privacy` menu open with `Full Disk Access` selected. `karabiner_grabber` and `karabiner_observer` are the only options, are both checked.](images/input-monitoring.png)
+
+
+
+## Login Items
+
+![The `System Preferences > Users & Groups > Login Items` pane with the items `Alfred 4`, `Moom`, and `Karabiner-Elements`. The `Hide` checkbox next to each item is checked.](/Users/hexdump/dotfiles/macOS-config/images/login-items.png)
