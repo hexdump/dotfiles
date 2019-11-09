@@ -272,3 +272,19 @@ Catalina has a new notification for when application signing isn't verified by A
 ![A system notification with the title `"kitty" can't be opened because Apple cannot check it for malicious software.` and the body `This software needs to be updated. Contact the developer for more information. Homebrew Cask downloaded this file today at 1:12 PM from github.com.`](images/cant-scan-for-malicious-software.png)
 
 Nothing's changed except the message. To open these applications for the first time, just find the application and right-click to open it.
+
+## Setting Dock Applications
+
+Setting which applications are and aren't in the dock through right-click context menus can be kind of a pain. I've found a little workaround.
+
+First, run:
+
+```
+defaults write com.apple.dock static-only -bool TRUE; killall Dock
+```
+
+Then, open all the applications to include in the dock. After they are open, then run:
+
+```
+defaults write com.apple.dock static-only -bool FALSE; killall Dock
+```
