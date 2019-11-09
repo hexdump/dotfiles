@@ -16,7 +16,7 @@
   (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")) t))
 (package-initialize)
 
-(setq package-list '(company multiple-cursors))
+(setq package-list '(company multiple-cursors xclip))
 (unless package-archive-contents
   (package-refresh-contents))
 
