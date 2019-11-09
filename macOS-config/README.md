@@ -36,7 +36,7 @@ In `Settings > General`, I like to set my accent and highlight colors to yellow.
 
 Other things I've configured here as different from the default:
 
-- `Sidebar icon size` set to `Medium`: I like big icons, especially on my Retina screen.
+- `Accent color` is set to yellow, my favorite color.
 - `Automatically hide and show the menu bar` is checked: I think my mac looks cleaner this way.
 - `Show scroll bars` set to `When scrolling`: having the scrollbar while you're not scrolling seems redundant to me, and looks ugly on my `Terminal` windows.
 - `Click in the scroll bar to` set to `Jump to the spot that's clicked`: I personally think this makes more sense than the alternative.
@@ -63,12 +63,6 @@ I like automatically hiding my dock because I think it looks clean, and saves sc
 I love speedy key repeat rates. I've set `Key Repeat` to the fastest setting, and `Delay Until Repeat` to the shortest setting.
 
 <img alt="Shows the `System Preferences > Keyboard > Keyboard` menu with `Key Repeat` set to the `Fast` setting and `Delay Until Repeat` set to the `Short` setting." src="images/key-repeat.png" height="600"/>
-
-### `Keyboard > Modifier Keys`
-
-Since I use `emacs`, I have to keep my emacs pinky in check (seriously, after starting a summer intership I started to get it within a week). I've remapped my `Caps Lock` to `Control` globally. *Note that* this will not apply to other keyboards than the one you have selected in `Select keyboard`.
-
-<img alt="The `Keyboard > Modifier Keys` pane open with `Caps Lock` set to `Control`." src="images/remap-control.png" height="600"/>
 
 ### `Keyboard > Text`
 
@@ -280,8 +274,20 @@ $ brew install emacs python3 rust
 ## Userland Applications
 
 ```shell
-$ brew cask install telegram typora kitty protonvpn spotify vlx deluge
+$ brew cask install telegram \
+                    typora \
+		    kitty \
+		    protonvpn \
+		    spotify \
+		    vlc \
+		    deluge \
+		    firefox \
+		    karabiner-elements
 ```
+
+## Set Firefox as the Default Browser
+
+In `System Preferences > General`, set the default browser to Firefox.
 
 ## macOS Catalina New Unsigned Application Message
 

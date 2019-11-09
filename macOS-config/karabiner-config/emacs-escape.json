@@ -1,0 +1,29 @@
+{
+    "title": "emacs-escape",
+    "rules": [
+        {
+            "description": "maps emacs' C-g to escape system-wide.",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "g",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "escape"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
