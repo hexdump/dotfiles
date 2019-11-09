@@ -51,10 +51,15 @@ There's a setting in macOS's `Accessibility > Display` pane to `Increase contras
 <img alt="The `Accessibility > Display` pane open with `Increase contrast` checked and `Reduce transparency` checked and greyed out to indicate you can't uncheck it." src="images/black-borders.png" height="600"/>
 
 ## Dock
+I've completely disabled my Dock using the following commands:
 
-I like automatically hiding my dock because I think it looks clean, and saves screen real estate.
+```
+defaults write com.apple.dock autohide -bool true && killall Dock
+defaults write com.apple.dock autohide-delay -float 1000 && killall Dock
+defaults write com.apple.dock no-bouncing -bool TRUE && killall Dock
+```
 
-<img alt="The `Dock` preference pane open with `Automatically hide and show the Dock` unselected." src="images/hide-dock.png" height="600"/>
+The dock can still be accessed with `Command-Up` or `Command-Option-D` if need be.
 
 ## Keyboard
 
@@ -272,19 +277,3 @@ Catalina has a new notification for when application signing isn't verified by A
 ![A system notification with the title `"kitty" can't be opened because Apple cannot check it for malicious software.` and the body `This software needs to be updated. Contact the developer for more information. Homebrew Cask downloaded this file today at 1:12 PM from github.com.`](images/cant-scan-for-malicious-software.png)
 
 Nothing's changed except the message. To open these applications for the first time, just find the application and right-click to open it.
-
-## Setting Dock Applications
-
-Setting which applications are and aren't in the dock through right-click context menus can be kind of a pain. I've found a little workaround.
-
-First, run:
-
-```
-defaults write com.apple.dock static-only -bool TRUE; killall Dock
-```
-
-Then, open all the applications to include in the dock. After they are open, then run:
-
-```
-defaults write com.apple.dock static-only -bool FALSE; killall Dock
-```
