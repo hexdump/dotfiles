@@ -38,7 +38,7 @@ Other things I've configured here as different from the default:
 
 - `Accent color` is set to yellow, my favorite color.
 - `Automatically hide and show the menu bar` is checked: I think my mac looks cleaner this way.
-- `Show scroll bars` set to `When scrolling`: having the scrollbar while you're not scrolling seems redundant to me, and looks ugly on my `Terminal` windows.
+- `Show scroll bars` set to `When scrolling`: having the scrollbar while you're not scrolling seems redundant to me.
 - `Click in the scroll bar to` set to `Jump to the spot that's clicked`: I personally think this makes more sense than the alternative.
 - `Ask to keep changes when closing documents` is checked.
 - `Close windows when quitting an app` is checked! I hate when I reopen an application and I have a ton of old windows pop up that I have to close.
@@ -173,31 +173,6 @@ MacOS (as of Mojave) installs Emacs `22.1.1`, which is ancient; probably because
 brew install emacs
 ```
 
-## App Installation
-
-I like installing apps through `brew cask` because command line stuff is great, and it allows all of my applications to be centrally managed by a utility. Nothing is in the Mac App Store.
-
-```
-brew cask install telegram
-brew cask install gimp
-brew cask install deluge
-```
-
-## Enable zsh as default shell
-
-`zsh` is marginally better than `bash`. Set it as the default in the
-`Terminal > Preferences > Profiles > Shell` tab, under `Run command:`:
-
-<img alt="Shows the `Terminal > Preferences > Profiles > Shell` pane with `Run command:` set to `zsh --login` and `Run inside shell` deselected." src="images/set-zsh-as-default-shell.png" height="600"/>
-
-Disable `Run inside shell`; `zsh` can be used properly as a login shell.
-
-## Enable meta key in terminal
-
-To use `option` as the meta key in Terminal, enable it in `Terminal > Preferences > Profiles > Keyboard`:
-
-<img alt="Shows the `Terminal > Preferences > Profiles > Keyboard` pane with `Use Option as Meta key` selected" src="images/use-option-as-meta-key.png" height="600"/>
-
 ## Trackpad configuration
 
 Under `Trackpad > Point & Click`, I've enabled `Force Click & haptic feedback` and `Tap to click`.
@@ -273,10 +248,13 @@ $ brew install emacs python3 rust
 
 ## Userland Applications
 
+I like installing apps through `brew cask` because command line stuff is great, and it allows all of my applications to be centrally managed by a utility. Nothing is in the Mac App Store.
+
 ```shell
 $ brew cask install telegram \
                     typora \
 		    kitty \
+		    gimp \
 		    protonvpn \
 		    spotify \
 		    vlc \
