@@ -26,9 +26,11 @@ PATH="/Users/lschumm/.bin:$PATH"
 
 alias cd="HOME=~/Desktop/ cd"
 
+setopt HIST_IGNORE_SPACE
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
+
 
 export NVM_DIR="$HOME/.nvm"
 nvm() {
