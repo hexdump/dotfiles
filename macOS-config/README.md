@@ -170,6 +170,16 @@ To set up your `git` name and email, run
 $ EDITOR=nano git config --global --edit
 ```
 
+## Generate SSH key
+
+To generate an SSH key, run:
+
+```
+$ ssh-keygen
+```
+
+Then, link your SSH key up to GitHub/VPSes/wherever else you use SSH authentication.
+
 ## Install Python3
 
 macOS Catalina has officially deprecated the system Python executable, and will complain if you run it. I recommend you install `python3` through `brew`:
@@ -177,15 +187,6 @@ macOS Catalina has officially deprecated the system Python executable, and will 
 ```shell
 
 $ brew install python3
-```
-
-
-## Install the latest version of Emacs
-
-MacOS (as of Mojave) installs Emacs `22.1.1`, which is ancient; probably because of it moving to GPLv3 `:(`. Install `emacs26` with `brew`:
-
-```
-brew install emacs
 ```
 
 ## Trackpad configuration
