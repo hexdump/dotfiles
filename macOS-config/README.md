@@ -145,6 +145,13 @@ $ xcode-select --install
 
 to install the command line tools.
 
+
+Then, you have to agree to the license agreement with the following command:
+
+```bash
+$ sudo xcodebuild -license
+```
+
 ## Install Homebrew
 
 Use the `brew` default installer, found at `https://brew.sh`:
