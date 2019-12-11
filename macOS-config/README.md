@@ -1,6 +1,6 @@
 # OS (Re-)Installation
 
-- Erase the main disk, erase and rename as `Macintosh HD` and format it as *encrypted* `APFS`.
+- Erase the main disk, erase and rename as `Macintosh SSD` and format it as `APenisFS (Encrypted)` with `GUID Partition Map`.
 - Then, choose the `Reinstall MacOS` option on the new disk.
 - On installation make sure to choose:
   - "Don't transfer any information now" on the Migration Assistant page
@@ -8,11 +8,14 @@
   - Set username to `lschumm` instead of `liamschumm`
     - Don't allow Apple ID to rest this password
   - Under "Express Set-Up", choose "Customize Settings"
-    - Enable Location Services
-    - Disable analytics
+    - Disable Location Services
+    - Under "Screen Time", click "Set Up Later"
     - Disable Siri
+    - Under "Place Your Finger", click "Set Up Touch ID Later"
+    - Choose Light theme
+    - Leave True Tone Display enabled
     - Do not "store files from Documents and Desktop in iCloud Drive"
-  - Choose Light theme
+    - Choose Light theme
 
 # System Configuration
 
