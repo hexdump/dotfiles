@@ -1,6 +1,6 @@
 # OS (Re-)Installation
 
-- Erase the main disk, erase and rename as `Macintosh SSD` and format it as `APenisFS (Encrypted)` with `GUID Partition Map`.
+- Erase the main disk, erase and rename as `Macintosh SSD` and format it as `APFS (Encrypted)` with `GUID Partition Map`.
 - Then, choose the `Reinstall MacOS` option on the new disk.
 - On installation make sure to choose:
   - "Don't transfer any information now" on the Migration Assistant page
@@ -49,22 +49,27 @@ Other things I've configured here as different from the default:
 - `Close windows when quitting an app` is checked! I hate when I reopen an application and I have a ton of old windows pop up that I have to close.
 - `Recent items` is set to `None`. I don't use the `Recent Items` feature on my mac since launching programs or documents with my keyboard is faster.
 
-## Black Borders
+## Set Wallpaper
 
-There's a setting in macOS's `Accessibility > Display` pane to `Increase contrast`. This gives you super sweet black borders on windows and popups that I really like. Clicking `Increase contrast` will also select `Reduce transparency`.
-
-<img alt="The `Accessibility > Display` pane open with `Increase contrast` checked and `Reduce transparency` checked and greyed out to indicate you can't uncheck it." src="images/black-borders.png" height="600"/>
+Under `Colors`, I used the `Custom Color...` button to input the hex code for my signature color, `#f9f0e0`.
 
 ## Dock
 I've completely disabled my Dock using the following commands:
 
-```
-defaults write com.apple.dock autohide -bool true && killall Dock
-defaults write com.apple.dock autohide-delay -float 1000 && killall Dock
-defaults write com.apple.dock no-bouncing -bool TRUE && killall Dock
+```shell
+$ defaults write com.apple.dock autohide -bool true && killall Dock
+$ defaults write com.apple.dock autohide-delay -float 1000 && killall Dock
+$ defaults write com.apple.dock no-bouncing -bool TRUE && killall Dock
 ```
 
 The dock can still be accessed with `Command-Up` or `Command-Option-D` if need be.
+
+## Desktop
+I've completely disabled my Desktop with the following commands:
+
+```shell
+$ defaults write com.apple.finder CreateDesktop false && killall Finder
+```
 
 ## Keyboard
 
@@ -103,11 +108,7 @@ by unchecking `When switching to an application, switch to a Space with open win
 
 ### Desktop View Options
 
-If you right click on your desktop and click `Show View Options`, you'll be able to set Finder's view options for the Desktop. For *everything* in Finder, I like to have `Sort By` set to `Snap to Grid`, since it lets you organize files how you like but also keeps them neat.
-
-<img alt="The Finder `Show View Options` menu with `Sort By` set to `Snap to Grid`." src="images/desktop-view-options.png" height="600"/>
-
-Then, navigate to your home folder (`lschumm` in my case). Right click in this folder, and you'll get another `Show View Options` to show up. This is different from the one on the Desktop, and will allow you to configure defaults for all of your Finder windows.
+Navigate to your home folder (`lschumm` in my case). Right click in this folder, and you'll get another `Show View Options` to show up. This is different from the one on the Desktop, and will allow you to configure defaults for all of your Finder windows.
 
 I've enabled `Always open in icon view`, set `Sort By` to `Snap to Grid`, and checked `Show Library Folder`. To set these options as the system defaults, I clicked `Use as Defaults`.
 
@@ -229,12 +230,6 @@ Once you've copied my `gitignore-global` file to `~/.gitignore` (rename the file
 
 ```bash
 $ git config --global core.excludesfile ~/.gitignore
-```
-
-## Hide all desktop icons
-
-```shell
-$ defaults write com.apple.finder CreateDesktop false && killall Finder
 ```
 
 # Application Installs
