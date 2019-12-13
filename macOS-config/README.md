@@ -136,6 +136,13 @@ Under `Finder Preferences > Advanced` I've enabled `Show all filename extensions
 
 <img alt="The `Finder Preferences > Advanced` pane open with `Show all filename extensions` checked and `Show warning before changing an extension` unchecked. `When performing a search:` is set to `Search the Current Folder`." src="images/finder-preferences-advanced.png" height="600"/>
 
+## Trackpad configuration
+
+Under `Trackpad > Point & Click`, I've enabled `Force Click & haptic feedback` and `Tap to click`.
+
+<img alt="The `Trackpad > Point & Click` pane with `Force Click & haptic feedback` checked and `Tap to click` checked." src="images/trackpad-settings.png" height="600"/>
+
+
 # Development Tools
 
 ## Install XCode
@@ -169,35 +176,9 @@ I like to install everything from system utilities to applications through `brew
 
 To set up your `git` name and email, run
 
-```
+```bash
 $ EDITOR=nano git config --global --edit
 ```
-
-## Generate SSH key
-
-To generate an SSH key, run:
-
-```
-$ ssh-keygen
-```
-
-Then, link your SSH key up to GitHub/VPSes/wherever else you use SSH authentication.
-
-## Install Python3
-
-macOS Catalina has officially deprecated the system Python executable, and will complain if you run it. I recommend you install `python3` through `brew`:
-
-```shell
-
-$ brew install python3
-```
-
-## Trackpad configuration
-
-Under `Trackpad > Point & Click`, I've enabled `Force Click & haptic feedback` and `Tap to click`.
-
-<img alt="The `Trackpad > Point & Click` pane with `Force Click & haptic feedback` checked and `Tap to click` checked." src="images/trackpad-settings.png" height="600"/>
-
 
 ## Git Credential Cache Helper
 
@@ -207,12 +188,30 @@ On MacOS, you can set `Keychain.app` as your credential helper for git, so you w
 git config --global credential.helper osxkeychain
 ```
 
+## Globally ignore .DS_Store files
+
+Once you've copied my `gitignore-global` file to `~/.gitignore` (rename the file), run the following command:
+
+```bash
+$ git config --global core.excludesfile ~/.gitignore
+```
+
+## Generate SSH key
+
+To generate an SSH key, run:
+
+```shell
+$ ssh-keygen
+```
+
+Then, link your SSH key up to GitHub/VPSes/wherever else you use SSH authentication.
+
 ## Install gnupg
 
 You need `gnupg` on macOS in order to download from the ELPA package
 archive for emacs.
 
-```bash
+```shell
 $ brew install gpg
 ```
 
@@ -222,14 +221,6 @@ To generate an `ssh` keypair, just run:
 
 ```shell
 $ ssh-keygen
-```
-
-## Globally ignore .DS_Store files
-
-Once you've copied my `gitignore-global` file to `~/.gitignore` (rename the file), run the following command:
-
-```bash
-$ git config --global core.excludesfile ~/.gitignore
 ```
 
 # Application Installs
@@ -245,62 +236,27 @@ $ brew install emacs python3 rust
 I like installing apps through `brew cask` because command line stuff is great, and it allows all of my applications to be centrally managed by a utility. Nothing is in the Mac App Store.
 
 ```shell
-$ brew cask install telegram \
+$ brew cask install zsh \
+                    telegram \
                     typora \
-		    kitty \
-		    gimp \
-		    protonvpn \
-		    spotify \
-		    vlc \
-		    deluge \
-		    firefox \
-		    karabiner-elements \
-		    alfred
+                    kitty \
+                    gimp \
+                    protonvpn \
+                    spotify \
+                    vlc \
+                    deluge \
+                    firefox \
+                    karabiner-elements \
+                    alfred
 ```
 
 ## Set Firefox as the Default Browser
 
 In `System Preferences > General`, set the default browser to Firefox.
 
-## macOS Catalina New Unsigned Application Message
-
-Catalina has a new notification for when application signing isn't verified by Apple. It looks a lot scarier, and freaked me out the first time I saw it:
-
-![A system notification with the title `"kitty" can't be opened because Apple cannot check it for malicious software.` and the body `This software needs to be updated. Contact the developer for more information. Homebrew Cask downloaded this file today at 1:12 PM from github.com.`](images/cant-scan-for-malicious-software.png)
-
-Nothing's changed except the message. To open these applications for the first time, just find the application and right-click to open it.
-
-## OS Permissions
-
-During the course of your installation, it's likely you'll get a bunch of notifications that look like this:
-
-![Example notification with the title `"Calendar" would like to use your current location`, the text `Your location is required to provide you with improved location searches and travel time estimates.`, and the options `Don't Allow` and `OK`.](images/example-permissions-notification.png)
-
-You can click either, since you can configure these later. My permissions for current location look like:
-
-![The `System Preferences > Security & Privacy > Privacy` pane open, with `Calendar` deselected and `Find My` and `Siri & Dicatation` selected.](images/location-services-permissions.png)
-
-Important thing to note–in the `Details...` section under `System Services`, there's granular permissions that show Apple is doing some shady advertising... I've disabled `Location-Based Suggestions`, `Significant Locations`, `Location-Based Apple Ads`, and `HomeKit` (because I don't use HomeKit).
-
-![The `System Preferences > Security & Privacy > Privacy` pane open, with the `Details...` menu of `System Services` opened. I have unchecked `Location-Based Suggestions`, `Significant Locations`, `Location-Based Apple Ads`, and `HomeKit`.](images/system-services-location-preferences.png)
-
-In order to not get a billion notifications about whether your terminal is allowed to access folders, you should add your preferred terminal emulator to the list of applications with `Full Disk Access` in the `System Preferences > Security & Privacy > Privacy` menu.
-
-Alfred also needs full disk access in order to index applications and files.
-
-![The `System Preferences > Security & Privacy > Privacy` menu open with `Full Disk Access` selected. `Alfred 4.app` and `kitty` are the only options, are both checked.](images/full-disk-access.png)
-
-For input monitoring, we need to enable Karabiner. The executables `karabiner_grabber` and `karabiner_observer` are in `/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_grabber` and `/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_observer`, respectively. Add these to the Input Monitoring section:
-
- ![The `System Preferences > Security & Privacy > Privacy` menu open with `Full Disk Access` selected. `karabiner_grabber` and `karabiner_observer` are the only options, are both checked.](images/input-monitoring.png)
-
-
-
 ## Login Items
 
 ![The `System Preferences > Users & Groups > Login Items` pane with the items `Alfred 4`, `Moom`, and `Karabiner-Elements`. The `Hide` checkbox next to each item is checked.](/Users/hexdump/dotfiles/macOS-config/images/login-items.png)
-
-
 
 ## Opening Terminal-Based Emacs on Files
 
