@@ -248,7 +248,8 @@ $ brew cask install zsh \
                     firefox \
                     karabiner-elements \
                     alfred \
-                    moom
+                    moom \
+                    steam
 ```
 
 ## Set Firefox as the Default Browser

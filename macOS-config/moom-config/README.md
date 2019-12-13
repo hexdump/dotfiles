@@ -14,16 +14,8 @@ I've bound Moom to `Command-G`, which seems to be a reasonable option for not in
 
 Increase `Define window sizes using` to `25` x `25`, the max size.
 
-First, delete all existing window size presets. My presets are binary splits with 1 cell borders:
+My custom presets are binary splits with a 1 cell border:
 
-0 splits:
+![Preset 1 is the whole screen with a 1 cell border. Preset 2 is the left half of the screen with a 1 cell border (25x11). Preset 3 is the right half of the screen with a 1 cell border (25x11).](images/sizes-1.png)
 
-![One window taking up the whole screen with some padding around the edges.](images/size-1.png)
-
-1 split:
-
-![Two windows on horizontal halves of the screen, with padding around their edges.](images/size-2-3.png)
-
-2 splits:
-
-![Four windows in the four quadrants of the screen, with padding around their edges.](images/size-4-5-6-7.png)
+![Preset 4 is the top left corner of the screen with a 1 cell border (11x11). Preset 5 is the lower left corner, 6 is the upper right, and 7 is the bottom right.](images/sizes-2.png)
