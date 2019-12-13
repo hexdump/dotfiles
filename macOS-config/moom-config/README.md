@@ -1,5 +1,7 @@
 # moom-config
 
+I have to install Moom from the App Store since I purchased it there.
+
 # `Moom > Preferences > Mouse`
 
 I have no idea why there's a delay by default; it's super frustrating. Set `Delay` to `None` with the slider.

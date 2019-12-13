@@ -247,7 +247,8 @@ $ brew cask install zsh \
                     deluge \
                     firefox \
                     karabiner-elements \
-                    alfred
+                    alfred \
+                    moom
 ```
 
 ## Set Firefox as the Default Browser
@@ -256,16 +257,26 @@ In `System Preferences > General`, set the default browser to Firefox.
 
 ## Login Items
 
-![The `System Preferences > Users & Groups > Login Items` pane with the items `Alfred 4`, `Moom`, and `Karabiner-Elements`. The `Hide` checkbox next to each item is checked.](/Users/hexdump/dotfiles/macOS-config/images/login-items.png)
+![The `System Preferences > Users & Groups > Login Items` pane with the items `Alfred 4`, `Moom`, and `Karabiner-Elements`. The `Hide` checkbox next to each item is checked.](images/login-items.png)
 
 ## Opening Terminal-Based Emacs on Files
 
-![The opening screen of Automator open, with the type of document chosen to be `Application`.](/Users/hexdump/dotfiles/macOS-config/images/automator-kitty-emacs-hook-1.png)
+![The opening screen of Automator open, with the type of document chosen to be `Application`.](images/automator-kitty-emacs-hook-1.png)
 
-![Automator open, with the `Actions` search field filled in with `run shell`, and the single result `Run Shell Script` showing.](/Users/hexdump/dotfiles/macOS-config/images/automator-kitty-emacs-hook-2.png)
+![Automator open, with the `Actions` search field filled in with `run shell`, and the single result `Run Shell Script` showing.](/images/automator-kitty-emacs-hook-2.png)
 
-![The Automator `Run Shell Script` Action with the command below filled in for the script.](/Users/hexdump/dotfiles/macOS-config/images/automator-kitty-emacs-hook-3.png)
+![The Automator `Run Shell Script` Action with the command below filled in for the script.](images/automator-kitty-emacs-hook-3.png)
 
 ```
 nohup /usr/local/bin/kitty /usr/local/bin/emacs $1 >/dev/null 2>&1 &
+```
+
+Save this as `cli-emacs-hook.app` in `Applications`.
+
+## Disable Gatekeeper
+
+I think I have decent hygiene as to what I run on my computer, and I don't like macOS requiring every application to be recognized by *them*. I disable Gatekeeper (the service that verifies code signatures) like so:
+
+```shell
+$ sudo spctl --master-disable
 ```
