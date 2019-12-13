@@ -5,8 +5,9 @@
 - On installation make sure to choose:
   - "Don't transfer any information now" on the Migration Assistant page
   - Sign in with Apple ID
-  - Set username to `lschumm` instead of `liamschumm`
+  - Set username to `hexdump` instead of `liamschumm`
     - Don't allow Apple ID to rest this password
+  - Enable iCloud Keychain
   - Under "Express Set-Up", choose "Customize Settings"
     - Disable Location Services
     - Under "Screen Time", click "Set Up Later"
@@ -21,10 +22,11 @@
 
 Since XCode takes a while to download and install, you can run through the `macOS Configuration` concurrently with the `Development Tools` section.
 
-## Sign in with iCloud
+## Disable unused iCloud services
+Under the `iCloud` menu in System Preferences, I've disabled the following:
 
-The first thing you should do in System Preferences is sign into your iCloud account. This is fairly straightforward. The only customization I did was disabling "Optimize Mac Storage" (which automatically syncs between your Mac and iCloud drive) and disabling iCloud access for the Mac apps I don't use; namely:
-
+- iCloud Drive
+- Siri
 - News
 - Stocks
 - Home
