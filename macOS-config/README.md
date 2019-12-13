@@ -241,6 +241,7 @@ $ brew cask install zsh \
                     typora \
                     kitty \
                     gimp \
+                    inkscape \
                     protonvpn \
                     spotify \
                     vlc \
