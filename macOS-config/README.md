@@ -51,7 +51,7 @@ Other things I've configured here as different from the default:
 
 ## Set Wallpaper
 
-Under `Colors`, I used the `Custom Color...` button to input the hex code for my signature color, `#f9f0e0`.
+Under `Colors`, I used the `Custom Color...` button to select a plain white background.
 
 ## Dock
 I've completely disabled my Dock using the following commands:
@@ -111,8 +111,6 @@ by unchecking `When switching to an application, switch to a Space with open win
 Navigate to your home folder (`lschumm` in my case). Right click in this folder, and you'll get another `Show View Options` to show up. This is different from the one on the Desktop, and will allow you to configure defaults for all of your Finder windows.
 
 I've enabled `Always open in icon view`, set `Sort By` to `Snap to Grid`, and checked `Show Library Folder`. To set these options as the system defaults, I clicked `Use as Defaults`.
-
-I've set the background to the color `#FFF9E6`.
 
 <img alt="The Finder `Show View Options` menu with `Always open in icon view` checked, `Sort By` set to `Snap to Grid` and `Show Library Folder` checked. A `Use as Defaults` button appears at the bottom of the window." src="images/home-folder-show-view-options.png" height="600"/>
 
@@ -228,7 +226,7 @@ $ ssh-keygen
 ##  Command-Line Applications
 
 ```
-$ brew install emacs python3 rust
+$ brew install emacs python3 rust duti
 ```
 
 ## Userland Applications
@@ -241,6 +239,7 @@ $ brew cask install zsh \
                     typora \
                     kitty \
                     gimp \
+                    xquartz \
                     inkscape \
                     protonvpn \
                     spotify \
@@ -270,4 +269,3 @@ In `System Preferences > General`, set the default browser to Firefox.
 ```
 nohup /usr/local/bin/kitty /usr/local/bin/emacs $1 >/dev/null 2>&1 &
 ```
-

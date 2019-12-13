@@ -17,27 +17,35 @@ $ brew install duti
 `duti` requires the bundle ID for applications it binds to filetypes.
 These bundle IDs can rather easily be found; either through:
 
-```bash
+```shell
 $ osascript -e 'id of app "SomeApp"'
 ```
 
 or
 
-```bash
+```shell
 $ mdls -name kMDItemCFBundleIdentifier -r SomeApp.app
 ```
 
 A valid bundle identifier should (very roughly) look like:
 
-```
-com.apple.automator.emacs-cli-hook
+```shell
+$ com.apple.automator.emacs-cli-hook
 ```
 
 *Found on a StackOverflow [answer](https://stackoverflow.com/a/39464824) from [@Qing](https://stackoverflow.com/users/6745884/qing).*
 
-## Binding a bundle ID to an application
+## Binding a bundle ID to an application (or many)
 
-Once you have the bundle ID of your target application, you can use
+To bind a single application to a file extension, run the following command:
+
+```shell
+duti -s bundle_id .ext all
+```
+
+where `bundle_id` is the bundle ID of the target application, and `.ext` is the extension you wish to bind to that application.
+
+To bind all code files to an application, you can use
 the `duti-bulk-map.sh` script included in this directory to map a list
 of file extensions to applications, like so:
 
