@@ -246,15 +246,16 @@ $ brew cask install zsh \
                     vlc \
                     deluge \
                     firefox \
+                    tor-browser \
                     karabiner-elements \
                     alfred \
                     moom \
                     steam
 ```
 
-## Set Firefox as the Default Browser
+## Set Tor Browser as the Default Browser
 
-In `System Preferences > General`, set the default browser to Firefox.
+In `System Preferences > General`, set the default browser to `Tor Browser.app`.
 
 ## Login Items
 
