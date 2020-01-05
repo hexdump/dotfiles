@@ -1,23 +1,25 @@
 # Setup
 - Select `English` for language
 - Select `United States` for Country or Region
-- Click `Set Up Manually` on Quick Start screen
-- Set up Touch ID
+- Connect to a non-captive portal Wi-Fi network
+- Click "Continue" on the `Data & Privacy` screen, there's no important options here
+- Click `Set Up Touch ID Later`, since [police can force you to unlock with touch ID](https://www.cultofmac.com/301735/cops-can-force-use-touch-id-passcode/)
 - Create a passcode
-- Don't Transfer Apps & Data
-- Choose "Customize Settings" on "Express Set-Up"
+- `Don't Transfer Apps & Data`
+- Sign in with iCloud
+- Agree to the terms and conditions; [here's](https://www.macworld.co.uk/feature/apple/should-you-agree-apples-terms-conditions-3659217/) a good summary
+- Choose `Customize Settings` on the `Express Set-Up` screen
 - Choose to install updates manually
-- Enable location services
+- Enable location services. Apple's default is that apps cannot use location services data until the user is prompted to enable them.
 - Choose `Set Up Later in Wallet` for Apple Pay, since I already have cards associated with my iCloud
-- Choose `Set Up Later in Settings` for Siri, so we can set it up without Hey Siri
+- Click `Not Now` under `Keep Everything Safe in iCloud`
+- Begin Siri setup, but click `Set Up "Hey Siri" Later` so we don't have to have something constantly listening to me
+- Do not `Share Audio Recordings` with Apple to improve Siri and Dictation; select `Not Now`
 - Choose "Set Up Later in Settings" for Screen Time
-- Click "Continue" on iPhone Analytics (if you're on beta iOS), and then click "Don't Share" under App Analytics.
-- Choose light theme
-- Click "Get Started"
-- Click into the "Finish setting up your iPhone" menu and exit out to dismiss it
+- Click  `Don't Share` under `iPhone Analytics`.
+- Choose `Dark` theme
 
-# Delete Default Apps
-- Watch
+# Delete Default Apps 
 - iTunes Store
 - TV
 - Home
