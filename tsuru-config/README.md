@@ -226,7 +226,7 @@ $ ssh-keygen
 ##  Command-Line Applications
 
 ```
-$ brew install emacs python3 rust duti
+$ brew install emacs python3 rust duti cmake moreutils nmap
 ```
 
 ## Userland Applications
@@ -250,7 +250,8 @@ $ brew cask install zsh \
                     karabiner-elements \
                     alfred \
                     moom \
-                    steam
+                    steam \
+                    yed
 ```
 
 ## Set Tor Browser as the Default Browser
