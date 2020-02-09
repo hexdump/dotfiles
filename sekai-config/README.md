@@ -1,4 +1,4 @@
-# kikai-config
+# sekai-config
 
 **note:** this guide assumes you have a reliable ethernet connection.
 
@@ -58,9 +58,9 @@ Using /dev/sda
 New disk label type? msdos
 Warning: The existing disk label on /dev/sda will be destroyed and all data on this disk will be lost. Do you want to continue?
 Yes/No? Yes
-(parted) mkpart primary ext3 1MiB 100MiB
+(parted) mkpart primary ext3 1MiB 512MiB
 (parted) set 1 boot on
-(parted) mkpart primary ext3 100MiB 100%
+(parted) mkpart primary ext3 512MiB 100%
 (parted) quit
 Information: You may need to update /etc/fstab.
 ```
@@ -105,7 +105,7 @@ $ mount /dev/sda1 /mnt/boot
 use `pacstrap` to install the base system, as well as `emacs` (for editing config files), `grub` and `lvm2`, and `git`:
 
 ```
-$ pacstrap -i /mnt base base-devel linux linux-firmware emacs grub lvm2 git
+$ pacstrap -i /mnt base base-devel linux linux-firmware emacs grub lvm2 git nvidia
 ```
 
 (hit the `return` key when it asks your selection of `members in group base-devel`).
@@ -258,7 +258,7 @@ enable lxdm
 
 ```
 sudo systemctl enable lxdm
-``` 
+```
 
 and set xfce4 as the window manager for lxdm by using emacs to edit `/etc/lxdm/lxdm.conf`:
 
