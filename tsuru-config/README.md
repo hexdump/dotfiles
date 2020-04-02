@@ -9,7 +9,7 @@
     - Don't allow Apple ID to rest this password
   - Enable iCloud Keychain
   - Under "Express Set-Up", choose "Customize Settings"
-    - Disable Location Services
+    - Enable Location Services and Find My Mac
     - Under "Screen Time", click "Set Up Later"
     - Disable Siri
     - Under "Place Your Finger", click "Set Up Touch ID Later"
@@ -23,10 +23,9 @@
 Since XCode takes a while to download and install, you can run through the `macOS Configuration` concurrently with the `Development Tools` section.
 
 ## Disable unused iCloud services
-Under the `iCloud` menu in System Preferences, I've disabled the following:
+Under the `Apple ID` menu in System Preferences, I've disabled the following:
 
 - iCloud Drive
-- Siri
 - News
 - Stocks
 - Home
