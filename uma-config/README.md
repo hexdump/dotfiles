@@ -140,3 +140,6 @@ Then, in `System Settings > Applications > Startup` add the custom command:
 ```
 /usr/bin/xmodmap /home/hexdump/.Xmodmap
 ```
+
+# Set desktop wallpaper
+Set the desktop wallpaper in this folder, `desktop.png` to the wallpaper.
