@@ -126,6 +126,9 @@ $ /usr/share/applications/start-tor-browser.desktop --register-app
 $ sudo apt-get install libreoffice
 ```
 
+```
+$ sudo apt-get install git
+```
 
 # Terminal Configuration
 
@@ -158,3 +161,19 @@ $ ssh-keygen
 ```
 
 Then, link your SSH key up to GitHub/VPSes/wherever else you use SSH authentication.
+
+# Set up Git credentials
+
+To set up your `git` name and email, run:
+
+```bash
+$ EDITOR=emacs git config --global --edit
+```
+
+Edit the contents to the following:
+
+```
+[user]
+    name = hexdump
+    email = contact@hexdump.email
+```
