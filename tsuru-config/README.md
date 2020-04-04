@@ -227,6 +227,8 @@ $ brew cask install telegram \
 		    discord
 ```
 
+I then install Pages, Numbers, and Keynote from the Mac App Store.
+
 ## Set Tor Browser as the Default Browser
 
 In `System Preferences > General`, set the default browser to `Tor Browser.app`.

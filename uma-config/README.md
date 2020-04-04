@@ -114,13 +114,18 @@ $ sudo apt-get update
 $ sudo apt-get install deluge
 ```
 
-Download Tor Browser from the website (no, really, there's literally no way to do this through package managers. I don't understand it either).
+Download Tor Browser from the website (no, really, there's literally no way to do this through package managers. I don't understand it either). Then run the following commands:
 
 ```
 $ tar xvf tor-browser-linux64-9.0.7_en-US.tar.xz
 $ mv tor-browser_en-US/* ~/.local/share/applications/.
 $ /usr/share/applications/start-tor-browser.desktop --register-app
 ```
+
+```
+$ sudo apt-get install libreoffice
+```
+
 
 # Terminal Configuration
 
@@ -143,3 +148,4 @@ Then, in `System Settings > Applications > Startup` add the custom command:
 
 # Set desktop wallpaper
 Set the desktop wallpaper in this folder, `desktop.png` to the wallpaper.
+
