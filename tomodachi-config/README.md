@@ -35,4 +35,4 @@
 # Post Installation
 
 - In `General > About`, set the name to `tomodachi`.
-- In `General > Keyboard`, disable all autocorrection.
+- In `General > Keyboard`, disable all autocorrection, but enable `Slide to Type` and disable `Delete Slide-to-Type by Word`.

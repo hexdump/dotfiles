@@ -24,7 +24,7 @@ $ sudo dd if=archlinux-2020.01.01-x86_64.iso of=/dev/disk2 bs=4m
 
 ### booting up
 
-push `F12` as the system is booting to select booting from the USB drive, under `LEGACY BOOT`.
+push `F12` as the system is booting to select booting from the USB drive, under `UEFI BOOT`.
 
 ### connect to internet
 
