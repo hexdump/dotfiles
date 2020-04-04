@@ -18,6 +18,9 @@ I've removed everything under the Home section of preferences, setting the homep
 
 Under Search, I've enabled search suggestions but disabled all one-click search engines besides DuckDuckGo.
 
+### Privacy and Security
+
+I've disabled Tor Browser's `Always use private browsing mode`.
 
 ## Navbar Configuration
 
