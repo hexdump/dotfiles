@@ -210,7 +210,6 @@ I like installing apps through `brew cask` because command line stuff is great, 
 ```shell
 $ brew cask install telegram \
                     typora \
-                    kitty \
                     gimp \
                     xquartz \
                     inkscape \
@@ -222,9 +221,7 @@ $ brew cask install telegram \
                     tor-browser \
                     karabiner-elements \
                     alfred \
-                    steam \
                     yed \
-                    spotify \
                     arduino \
 		    discord
 ```
@@ -286,7 +283,7 @@ $ ssh-keygen
 
 ## Login Items
 
-![The `System Preferences > Users & Groups > Login Items` pane with the items `Karabiner-Elements` and `Alfred 4`. The `Hide` checkbox next to each item is checked.](images/login-items.png)
+![The `System Preferences > Users & Groups > Login Items` pane with the items `Karabiner-Elements`, `ProtonVPN`, and `Alfred 4`. The `Hide` checkbox next to each item is checked.](images/login-items.png)
 
 ## Opening Terminal-Based Emacs on Files
 
