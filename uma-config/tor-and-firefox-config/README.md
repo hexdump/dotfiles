@@ -1,9 +1,5 @@
 # Firefox/Tor Browser Configuration
 
-## Theme
-
-Go to [https://addons.mozilla.org/en-US/firefox/addon/white-image/](https://addons.mozilla.org/en-US/firefox/addon/white-image/) and click `Install Theme`.
-
 ## Preferences
 
 ### General
