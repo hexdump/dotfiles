@@ -219,7 +219,8 @@ $ brew cask install telegram \
                     steam \
                     yed \
                     spotify \
-                    arduino
+                    arduino \
+		    discord
 ```
 
 ## Set Tor Browser as the Default Browser
