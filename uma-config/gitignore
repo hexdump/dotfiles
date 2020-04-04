@@ -1,0 +1,6 @@
+# macOS finder files
+.DS_Store
+
+# emacs save files
+\#.*\#
+.*~

@@ -1,4 +1,6 @@
-# Setup
+# Initial Setup
+
+## Installation
 - Select `English` for language
 - Select `United States` for Country or Region
 - Connect to a non-captive portal Wi-Fi network
@@ -19,7 +21,7 @@
 - Click  `Don't Share` under `iPhone Analytics`.
 - Choose `Dark` theme
 
-# Delete Default Apps 
+## Delete Default Apps 
 - iTunes Store
 - TV
 - Home
@@ -30,3 +32,7 @@
 - Files
 - Books
 
+# Post Installation
+
+- In `General > About`, set the name to `tomodachi`.
+- In `General > Keyboard`, disable all autocorrection.
