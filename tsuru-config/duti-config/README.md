@@ -50,7 +50,7 @@ the `duti-bulk-map.sh` script included in this directory to map a list
 of file extensions to applications, like so:
 
 ```bash
-$ ./duti-bulk-map.sh com.apple.automator.emacs-cli-hook code-file-extensions.txt
+$ sh duti-bulk-map.sh com.apple.automator.emacs-cli-hook code-file-extensions.txt
 ```
 
 I've included a file named `code-file-extensions.txt` which contains

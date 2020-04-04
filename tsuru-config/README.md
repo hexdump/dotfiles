@@ -4,8 +4,14 @@ This is the guide for the configuration of *tsuru*, my MacBook Air.
 
 # OS (Re-)Installation
 
-- Erase the main disk, erase and rename as `Macintosh SSD` and format it as `APFS (Encrypted)` with `GUID Partition Map`.
-- Then, choose the `Reinstall MacOS` option on the new disk.
+## Erasing Disk
+
+Erase the main disk, erase and rename as `Macintosh SSD` and format it as `APFS (Encrypted)` with `GUID Partition Map`.
+
+## Start Installation
+Choose the `Reinstall MacOS` option on the new disk.
+
+## First Boot Configuration
 - On installation make sure to choose:
   - "Don't transfer any information now" on the Migration Assistant page
   - Sign in with Apple ID
@@ -280,11 +286,9 @@ $ ssh-keygen
 
 ## Login Items
 
-![The `System Preferences > Users & Groups > Login Items` pane with the items `Alfred 4` and `Karabiner-Elements`. The `Hide` checkbox next to each item is checked.](images/login-items.png)
+![The `System Preferences > Users & Groups > Login Items` pane with the items `Karabiner-Elements` and `Alfred 4`. The `Hide` checkbox next to each item is checked.](images/login-items.png)
 
 ## Opening Terminal-Based Emacs on Files
-
-
 
 ![The opening screen of Automator open, with the type of document chosen to be `Application`.](images/automator-terminal-emacs-hook-1.png)
 
@@ -311,3 +315,7 @@ I think I have decent hygiene as to what I run on my computer, and I don't like 
 ```shell
 $ sudo spctl --master-disable
 ```
+
+## Install office apps
+
+Install Pages, Numbers, and Keynote from the macOS app store.

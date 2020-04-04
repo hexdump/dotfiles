@@ -1,4 +1,4 @@
-# Firefox Configuration
+# Firefox/Tor Browser Configuration
 
 ## Theme
 

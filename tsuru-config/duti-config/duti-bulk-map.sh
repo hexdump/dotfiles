@@ -5,7 +5,6 @@
 #
 # automatically binds the "open with" application on all developer
 # files to your editor of choice (in my case CLI emacs).
-# Copyright (C) 2019, Liam Schumm
 #
 
 EDITOR_BUNDLE_ID="$1"
