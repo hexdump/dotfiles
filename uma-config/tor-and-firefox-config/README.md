@@ -8,7 +8,7 @@ Go to [https://addons.mozilla.org/en-US/firefox/addon/white-image/](https://addo
 
 ### General
 
-Enable `When you open a link in a new tab, switch to it immediately`. Disable the default browser check.
+Enable `When you open a link in a new tab, switch to it immediately`. Disable the default browser check. Set the downloads path to a downloads folder in your home folder.
 
 ### Home
 
