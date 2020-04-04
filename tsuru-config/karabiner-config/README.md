@@ -1,21 +1,17 @@
 # Karabiner Configuration
 
-## Simple Modifications
+## Enable Input Monitoring permission
 
-### For all devices
+Without enabling input monitoring, Karabiner will not work and will instead display the following message:
+
+![Karabiner open, displaying a pop-up window with the message "karabiner_grabber and karabiner_observer require Input Monitoring permission. You have to allow them on System Preferences > Security & Privacy > Privacy > Input Monitoring".](images/karabiner-alert.png)
+
+In order to enable input monitoring, since Karabiner doesn't properly request Input Monitoring through whatever new API macOS has requested, go to Security and Privacy and add the `karabiner_grabber` and `karabiner_observer` executibles access under Accessibility. The executibles are in the folder `/Library/Application Support/org.pqrs/Karabiner-Elements/bin`.
+
+![The `System Preferences > Security & Privacy > Privacy` pane with `karabiner_grabber` and `karabiner_observer` in the list.](/Users/hexdump/dotfiles/tsuru-config/karabiner-config/images/karabiner-acessibility.png)
+
+## Simple Modifications
 
 I rebind `caps_lock` to `left_control` so that I actually have a use for the key and also to prevent emacs pinky.
 
 ![Karabiner open, under the tab `Simple Modifications` and with `Target device` set to `For all devices`, and with a mapping `From key` `caps_lock` `To key` `left_control`.](images/simple-modifications-for-all-devices.png)
-
-### For 60% Mechanical Keyboard
-
-Since my 60% mechanical keyboard for some reason binds the top left key to `Escape` by default (with backtick/tilde as the `Fn+` option), I've rebound `escape` to `grave_accent_and_tilde`. Note that one of the complex modifications maps `Control-G` to `Escape`, so we'll still be able to use it.
-
-![Karabiner open, under the tab `Simple Modifications` and with `Target device` set to `USB DEVICE (SONiX)`, and with a mapping `From key` `escape` `To key` `grave_accent_and_tilde`.](images/simple-modifications-usb-device.png)
-
-## Complex Modifications
-
-After you have opened Karabiner at least once, copy the `.json` files in `complex-modifications` to `~/.config/karabiner/assets/complex-modifications/`. After restarting Karabiner, go into the `Complex Modifications` tab, click `Add rule`, and enable `arrow-keys`, `emacs-escape`, and `mouse-keys`. After enabling all of these, your `Complex Modifications section should look like this:
-
-![Karabiner open, under the tab `Complex Modifications`, with a rule for each of: `mouse keys allows you to emulate a mouse with only your keyboard.`, `maps emacs' C-g to escape system-wide.`, and `allows you to emulate arrow keys on a 60% keyboard.`](images/complex-modifications.png)
