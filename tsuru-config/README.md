@@ -209,6 +209,7 @@ I like installing apps through `brew cask` because command line stuff is great, 
 
 ```shell
 $ brew cask install telegram \
+                    signal \
                     typora \
                     gimp \
                     xquartz \
