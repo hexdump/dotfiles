@@ -276,14 +276,6 @@ $ ssh-keygen
 
 Then, link your SSH key up to GitHub/VPSes/wherever else you use SSH authentication.
 
-## Set up `ssh` key
-
-To generate an `ssh` keypair, just run:
-
-```shell
-$ ssh-keygen
-```
-
 ## Login Items
 
 ![The `System Preferences > Users & Groups > Login Items` pane with the items `Karabiner-Elements`, `ProtonVPN`, and `Alfred 4`. The `Hide` checkbox next to each item is checked.](images/login-items.png)

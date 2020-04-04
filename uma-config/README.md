@@ -149,3 +149,12 @@ Then, in `System Settings > Applications > Startup` add the custom command:
 # Set desktop wallpaper
 Set the desktop wallpaper in this folder, `desktop.png` to the wallpaper.
 
+# Generate SSH key
+
+To generate an SSH key, run:
+
+```shell
+$ ssh-keygen
+```
+
+Then, link your SSH key up to GitHub/VPSes/wherever else you use SSH authentication.
