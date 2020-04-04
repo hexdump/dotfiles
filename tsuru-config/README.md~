@@ -1,7 +1,3 @@
-# tsuru-config
-
-This is the guide for the configuration of *tsuru*, my MacBook Air.
-
 # OS (Re-)Installation
 
 - Erase the main disk, erase and rename as `Macintosh SSD` and format it as `APFS (Encrypted)` with `GUID Partition Map`.
@@ -112,7 +108,7 @@ by unchecking `When switching to an application, switch to a Space with open win
 
 Navigate to the Desktop folder in the Finder. Right click in this folder, and you'll get `Show View Options` to show up. Set `Sort By` to `Snap to Grid`.
 
-<img alt="The Finder Desktop `Show View Options` menu with `Sort By` set to `Snap to Grid`." src="images/desktop-show-view-options.png" height="600"/>
+<img alt="The Finder Desktop `Show View Options` menu with `Sort By` set to `Snap to Grid`. src="images/desktop-show-view-options.png" height="600"/>
 
 Navigate to your home folder (`hexdump` in my case). Right click in this folder, and you'll get another `Show View Options` to show up. This is different from the one on the Desktop, and will allow you to configure defaults for all of your Finder windows.
 
@@ -216,6 +212,7 @@ $ brew cask install telegram \
                     tor-browser \
                     karabiner-elements \
                     alfred \
+                    moom \
                     steam \
                     yed \
                     spotify \
@@ -283,22 +280,14 @@ $ ssh-keygen
 
 ## Opening Terminal-Based Emacs on Files
 
+![The opening screen of Automator open, with the type of document chosen to be `Application`.](images/automator-kitty-emacs-hook-1.png)
 
+![Automator open, with the `Actions` search field filled in with `run shell`, and the single result `Run Shell Script` showing.](/images/automator-kitty-emacs-hook-2.png)
 
-![The opening screen of Automator open, with the type of document chosen to be `Application`.](images/automator-terminal-emacs-hook-1.png)
+![The Automator `Run Shell Script` Action with the command below filled in for the script.](images/automator-kitty-emacs-hook-3.png)
 
-![Automator open, with the `Actions` search field filled in with `applescript`, and the single result `Run AppleScript` showing.](images/automator-terminal-emacs-hook-2.png)
-
-![The Automator `Run AppleScript` Action with the script below filled in.](images/automator-terminal-emacs-hook-3.png)
-
-```applescript
-on run {input, parameters}
-	
-	tell application "Terminal"
-		do script "/usr/local/bin/emacs" & " " & POSIX path of input
-	end tell
-	
-end run
+```
+nohup /usr/local/bin/kitty /usr/local/bin/emacs $1 >/dev/null 2>&1 &
 ```
 
 Save this as `cli-emacs-hook.app` in `Applications`.
