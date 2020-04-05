@@ -16,13 +16,8 @@ title() {
 
 echo -n -e "\033]0; \007"
 
-cd $HOME/Desktop
 PROMPT="$ "
 
-PATH="/Users/lschumm/Library/Python/2.7/bin:$PATH"
-PATH="/Users/lschumm/Library/Python/3.7/bin:$PATH"
-PATH="/usr/local/sbin:$PATH"
-PATH="/Users/lschumm/.bin:$PATH"
 
 alias cd="HOME=~/Desktop/ cd"
 

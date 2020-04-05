@@ -180,3 +180,9 @@ Edit the contents to the following:
     name = hexdump
     email = contact@hexdump.email
 ```
+
+# Change shell to `zsh`
+
+```bash
+$ chsh hexdump -s /bin/zsh
+```
