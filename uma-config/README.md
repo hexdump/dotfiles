@@ -140,7 +140,10 @@ Put the following in `~/.Xmodmap`:
 
 ```
 keycode 9 = grave asciitilde
+clear lock
+clear control
 keycode 66 = Control_L
+add control = Control_L Control_R
 ```
 
 Then, in `System Settings > Applications > Startup` add the custom command:
