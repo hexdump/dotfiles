@@ -6,27 +6,28 @@ This is the guide for the configuration of *tsuru*, my MacBook Air.
 
 ## Erasing Disk
 
-Erase the main disk, erase and rename as `Macintosh SSD` and format it as `APFS (Encrypted)` with `GUID Partition Map`.
+Erase the main disk, erase and rename as `Macintosh SSD` and format it as `APFS` (encryption will be done later via FileVault) with `GUID Partition Map`.
 
 ## Start Installation
 Choose the `Reinstall MacOS` option on the new disk.
 
 ## First Boot Configuration
 - On installation make sure to choose:
-  - "Don't transfer any information now" on the Migration Assistant page
+  - Don't migrate any data
   - Sign in with Apple ID
-  - Set username to `hexdump` instead of `liamschumm`
-    - Don't allow Apple ID to rest this password
-  - Enable iCloud Keychain
+  - Set username and full name to `hexdump`.
+    - Don't allow Apple ID to reset this password
   - Under "Express Set-Up", choose "Customize Settings"
-    - Enable Location Services and Find My Mac
+    - Enable Location Services
+    - Disable all analytics
     - Under "Screen Time", click "Set Up Later"
     - Disable Siri
+    - Disable iCloud storage
+    - Enable FileVault disk encryption, but do not allow iCloud account unlocking
     - Under "Place Your Finger", click "Set Up Touch ID Later"
+    - Set up ApplePay
     - Choose Light theme
     - Leave True Tone Display enabled
-    - Do not "store files from Documents and Desktop in iCloud Drive"
-    - Choose Light theme
 
 # System Configuration
 
