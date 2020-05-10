@@ -82,13 +82,21 @@ $ defaults write com.apple.finder CreateDesktop false && killall Finder
 
 ## Keyboard
 
-### `Keyboard > Keyboard`
+### Set key repeat
 
 I love speedy key repeat rates. I've set `Key Repeat` to the fastest setting, and `Delay Until Repeat` to the shortest setting.
 
 <img alt="Shows the `System Preferences > Keyboard > Keyboard` menu with `Key Repeat` set to the `Fast` setting and `Delay Until Repeat` set to the `Short` setting." src="images/key-repeat.png" height="600"/>
 
-### `Keyboard > Text`
+### Rebind caps lock to control
+
+The `Modifier Keys...` menu allows you to rebind some of the keys on your keyboard. I use this functionality to rebind my unused caps lock key to another control key.
+
+<img alt="Shows the `System Preferences > Keyboard > Keyboard > Modifier Keys...` menu with `Caps Lock` set to `Control`." src="images/rebind-caps-lock.png" height="600"/>
+
+
+
+### Disable autocorrection
 
 *"On my way!"* - Literally nobody, ever.
 
@@ -176,9 +184,9 @@ I like to install everything from system utilities to applications through `brew
 
 ## Configure Terminal
 
-I use pretty much the stock terminal, with only two modifications. The first is making the background slightly transparent; which can be set by going to the `Terminal > Preferences` pane:
+I use pretty much the stock terminal, with only two modifications. The first is making the background slightly transparent; which can be set by going to the `Terminal > Preferences > Profiles > Text` pane:
 
-<img alt="The `Terminal > Preferences` pane." src="images/terminal-config.png" height="600"/>
+<img alt="The `Terminal > Preferences > Profiles > Text` pane." src="images/terminal-config.png" height="600"/>
 
 Click on `Color & Effects` in order to bring up the color selection dialogue; set it to 65% opacity and 40% blur.
 
@@ -192,7 +200,9 @@ Click on `Keyboard` and enable `Use Option as Meta Key`.
 
 ##  Command-Line Applications
 
-```
+Using brew, install the following:
+
+```bash
 $ brew install zsh \
                emacs \
                python3 \
@@ -201,7 +211,15 @@ $ brew install zsh \
                cmake \
                moreutils \
                nmap \
-               gpg
+               gpg \
+	       imagemagick \
+               ffmpeg
+```
+
+Using pip (specifically `pip3`), install the following:
+
+```bash
+$ sudo pip3 install ptpython
 ```
 
 ## Userland Applications
@@ -221,11 +239,11 @@ $ brew cask install telegram \
                     deluge \
                     firefox \
                     tor-browser \
-                    karabiner-elements \
                     alfred \
                     yed \
                     arduino \
-		    discord
+		    discord \
+		    java
 ```
 
 I then install Pages, Numbers, and Keynote from the Mac App Store.
@@ -245,10 +263,10 @@ $ EDITOR=emacs git config --global --edit
 
 Edit the contents to the following:
 
-```
+```bash
 [user]
-    name = hexdump
-    email = contact@hexdump.email
+	name = hexdump
+	email = contact@hexdump.email
 ```
 
 ## Git Credential Cache Helper

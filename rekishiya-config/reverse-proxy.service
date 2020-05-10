@@ -1,0 +1,14 @@
+[Unit]
+Description=Reverse proxy for services
+Requires=docker.service nextcloud.service bitwarden.service
+
+[Service]
+Restart=always
+RestartSec=1
+User=hexdump
+WorkingDirectory=/reverse-proxy/reverse-proxy
+ExecStart=/usr/bin/docker-compose up
+ExecStop=/usr/bin/docker-compose down
+
+[Install]
+WantedBy=multi-user.target

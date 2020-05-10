@@ -1,339 +1,170 @@
 # rekishiya-config
 
-**note:** this guide assumes you have a reliable ethernet connection.
+# On boot, press F2
 
-## preliminary configuration
+- Under `General > Boot Sequence`, disable all options except `Manjaro`.
+- Under `Power Management > AC Recovery`, select `Power On`. Under `Power Management > Auto On Time`, select `Every Day` and `12:00 AM`. Under `Block Sleep`, enable `Block Sleep (S3 State)`.
 
-### preparing install media
+# Dynamic DNS Setup with Namecheap
 
-**note:** these instructions are specific for macOS.
+I'm running my server on my home network. This means that I don't have
+a static IP, and I'll need to use Dynamic DNS to continuously update
+the DNS records to match my changing IP. I use Namecheap as my domain
+registrar; under the `Advanced DNS` pane in the domain dashboard
+there's an option for Dynamic DNS. Enable it, and create a
+`A+ Dynamic DNS Record` mapping from the hosts `@` (which means just
+the domain on its own without a subdomain), as well as all subdomains
+you'd like to register (in my case `nextcloud`, and `bitwarden`) to
+your current IP. Make a note of the Dynamic DNS password provided in
+the dashboard.
 
-first, download the latest archiso image from [https://www.archlinux.org/download/](https://www.archlinux.org/download/); i'm using `2020.01.01-x86_64` for writing this guide.
+In order to periodically update the DNS, all you need to do is send an
+HTTP request of the following format:
 
-then, plug in an usb drive and unmount it (if there's only one external disk plugged in, it'll be `/dev/disk2`):
-
-```
-$ diskutil unmountdisk /dev/disk2
-```
-
-then burn the arch `iso` to the disk with `dd`:
-
-```
-$ sudo dd if=archlinux-2020.01.01-x86_64.iso of=/dev/disk2 bs=4m
-```
-
-### booting up
-
-push `F12` as the system is booting to select booting from the USB drive, under `UEFI BOOT`.
-
-### connect to internet
-
-fire up `dhcpcd` to make sure you have an IP address:
-
-```
-$ dhcpcd
-```
-
-then check if you're online:
-
-```
-$ ping archlinux.org
-```
-
-
-### preparing partitions and filesystems
-
-for partitioning my drive, i use `parted`. fire it up at the command line by typing:
-```
-$ parted
-```
-
-and then in the `(parted)` prompt, follow this guide:
-
-```
-(parted) select /dev/sda
-Using /dev/sda
-(parted) mktable
-New disk label type? msdos
-Warning: The existing disk label on /dev/sda will be destroyed and all data on this disk will be lost. Do you want to continue?
-Yes/No? Yes
-(parted) mkpart primary ext3 1MiB 512MiB
-(parted) set 1 boot on
-(parted) mkpart primary ext3 512MiB 100%
-(parted) quit
-Information: You may need to update /etc/fstab.
-```
-
-then initialize the filesystems:
-
-```
-$ mkfs.vfat -F32 -n EFI /dev/sda1
-$ cryptsetup -c aes-xts-plain64 -y --use-random luksFormat /dev/sda2
-$ cryptsetup luksOpen /dev/sda2 luks
-```
-
-and the partitions on the encrypted filesystem:
-
-```
-$ pvcreate /dev/mapper/luks
-$ vgcreate vg0 /dev/mapper/luks
-$ lvcreate --size 8G vg0 --name swap
-$ lvcreate -l +100%FREE vg0 --name root
-$ mkswap /dev/mapper/vg0-swap
-$ mkfs.ext4 /dev/mapper/vg0-root
-```
-
-### mounting filesystems
-
-first, load our swap:
-
-```
-$ swapon /dev/mapper/vg0-swap
-```
-
-then mount our filesystems in the format that the operating system will have them:
-
-```
-$ mount /dev/mapper/vg0-root /mnt
-$ mkdir -p /mnt/boot/efi
-$ mount /dev/sda1 /mnt/boot/efi
-```
-
-### install the base system
-
-use `pacstrap` to install the base system, as well as `emacs` (for editing config files), `grub` and `lvm2`, and `git`:
-
-```
-$ pacstrap -i /mnt base base-devel linux linux-firmware emacs grub efibootmgr lvm2 git dhcpcd
-```
-
-### generate fstab
-
-generate the `fstab`:
-
-```
-genfstab -pU /mnt >> /mnt/etc/fstab
-```
-
-### system configuration
-
-now, enter the newly created system:
-
-```
-$ arch-chroot /mnt /bin/bash
-```
-
-configure locale:
-
-```
-$ echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
-$ echo "LANG=en_US.UTF-8" > /etc/locale.conf
-$ export LANG=en_US.UTF-8
-```
-
-set `/etc/localtime` to your timezone:
-
-```
-$ ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
-```
-
-synchronize the hardware clock:
-
-```
-$ hwclock --systohc --utc
-```
-
-set the system hostname:
-
-```
-$ echo rekishiya > /etc/hostname
-```
-
-now add our user:
-
-```
-useradd -m -g users -G wheel -s /bin/bash hexdump
-```
-
-and set their password:
-
-```
-$ passwd myusername
-```
-
-now enable group `wheel` to use `sudo` by editing `/etc/sudoers`:
-
-```
-$ emacs /etc/sudoers
-```
-
-**note:** you'll have to use `C-x C-q` to disable read-only mode in the emacs buffer.
-
-and uncomment the line `# %wheel ALL=(ALL) ALL`. exit emacs.
-
-### configure initial ramdisk
-
-edit `/etc/mkinitcpio.conf` with emacs:
-
-```
-$ emacs /etc/mkinitcpio.conf
-```
-
-under `MODULES`, add `ext4`, so it looks like:
-
-```
-MODULES=(ext4)
-```
-
-under `HOOKS`, add `encrypt` and `lvm2` before `filesystems`, so it looks like:
-
-```
-HOOKS=(base udev autodetect modconf block encrypt lvm2  rwlwfilesystems keyboard fsck)
-```
-
-now exit emacs and regenerate the initial ramdisk.
-
 ```
-$ mkinitcpio -p linux
+GET https://dynamicdns.park-your-domain.com/update?host=HOST&domain=DOMAIN&password=PASSWORD
 ```
 
-### set up grub
+*only* replace the parts in capitals with your information.
 
-install grub on our boot volume (`/dev/sda`):
-
-```
-$ grub-install --target=i386-pc --recheck /dev/sda 
-```
+I won't be using `cron` for this, instead I'll be using something
+called a systemd timer unit. How this works is we first create a
+service that updates the DNS over HTTP using cURL and shuts down after
+it completes. The file for this service, with placeholder requests,
+is located in `dynamic-dns.service`; place it in
+`/etc/systemd/system/` once configured.
 
-and then use `emacs` to edit `/etc/default/grub` to set the variable `GRUB_CMDLINE_LINUX` to `cryptdevice=/dev/sda2:luks:allow-discards`, so it looks like this:
+Instead of doing `systemctl enable` on this service, we instead create
+a service called `dynamic-dns.timer` (the file for this timer is
+located under the same name). Place the timer in
+`/etc/systemd/system/` and enable (and start) it:
 
-```
-GRUB_CMDLINE_LINUX="cryptdevice=/dev/sda2:luks:allow-discards"
+```bash
+$ sudo systemctl enable dynamic-dns.timer
+$ sudo systemctl start dynamic-dns
 ```
 
-then exit emacs and generate the grub config file:
-
-```
-grub-mkconfig -o /boot/grub/grub.cfg
-```
+# Docker Installation & Configuration
 
-### enable dhcpcd
+First, install `docker` and `docker-compose` through `pacman`:
 
+```bash
+$ sudo pacman -S docker docker-compose
 ```
-sudo systemctl enable dhcpcd.service
 
-```
-sudo pacman -S networkmanager
-```
+Then, `enable` the docker daemon with `systemctl` and start it:
 
-```
-sudo systemctl enable NetworkManager.service
+```bash
+$ sudo systemctl enable docker
+$ sudo systemctl start docker
 ```
 
-### reboot
+Then, create the `docker` group:
 
-now exit the chroot:
-
-```
-$ exit
+```bash
+$ sudo groupadd docker
 ```
 
-and reboot the system:
+and add our primary user to this group:
 
+```bash
+$ sudo usermod -aG docker hexdump
 ```
-$ reboot
-```
-
-## secondary configuration
-
-### install xfce
 
-install xfce and lxdm
+Now log out and log back in for group membership to register.
 
-```
-sudo pacman -S xfce4 xfce4-goodies lxdm
-```
+# Service Scaffolding
 
-enable lxdm
+Rekishiya runs 3 `docker-compose` groups: one for nextcloud, one for
+bitwarden, and one for the reverse proxy that connects these to the
+internet with TLS. I've given each of these "services" a directory
+in the root of my filesystem.
 
+```bash
+$ mkdir /nextcloud /bitwarden /reverse-proxy
 ```
-sudo systemctl enable lxdm
-```
 
-and set xfce4 as the window manager for lxdm by using emacs to edit `/etc/lxdm/lxdm.conf`:
+I chose permissions `770` so only my user (`hexdump`) and other users
+in the `docker` group can access the contents of the directory.
 
-```
-$ emacs /etc/lxdm/lxdm.conf
+```bash
+$ sudo chown -R hexdump:docker /nextcloud /bitwarden /reverse-proxy
+$ chmod 770 /nextcloud /bitwarden /reverse-proxy
 ```
 
-change the config to assign `session` to `/usr/bin/startxfce4`, so the line looks like:
+In each of these directories is a directory with the name of the
+service (to hold the docker resources), as well as a `data` directory
+for bind mounts.
 
+```bash
+$ mkdir /nextcloud/nextcloud /nextcloud/data
+$ mkdir /bitwarden/bitwarden /bitwarden/data
+$ mkdir /reverse-proxy/reverse-proxy /reverse-proxy/data
 ```
-session=/usr/bin/startxfce4
-```
-
-### install yay
 
-```
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-```
+# Nextcloud Setup
 
-### install userland applications
+Copy `nextcloud-db.env` and `nextcloud-docker-compose.yml` from this
+configuration guide's directory to `/nextcloud/nextcloud/db.env` and
+`/nextcloud/nextcloud/docker-compose.yml`
 
-```
-$ pacman -S firefox
-```
+First, choose a secure database admin password. Paste this into then
+`MYSQL_PASSWORD` field in `db.env`, as well as the corresponding
+`MYSQL_ROOT_PASSWORD` field in `docker-compose.yml`. Configure
+`VIRTUAL_HOST` and `LETSENCRYPT_HOST` both to the URL at which you'll
+be hosting the nextcloud instance (in my case
+`nextcloud.hexdump.cloud`), and configure `LETSENCRYPT_EMAIL` to the
+email at which you'd like to recieve Let's Encrypt emails about your
+cert.
 
-### install and configure ssh
+# Bitwarden Setup
 
+## Mailjet Configuration
 
-```
-$ pacman -S openssh
-````
+Bitwarden needs an email server from which to send verification
+emails. Since I'm going to be the only person using my Bitwarden
+instance, security and volume of verification emails is not a concern.
+I signed up for Mailjet's free plan.
 
-```
-$ sudo systemctl enable sshd.service
-````
+## Bitwarden Configuration
 
+Copy `bitwarden-docker-compose.yml` from this configuration guide's
+directory to `/bitwarden/bitwarden/docker-compose.yml`.
 
-#### eduroam config
+Set `DOMAIN` to the fully-qualified URL to bitwarden (in my case
+`https://bitwarden.hexdump.cloud`), `VIRTUAL_HOST` and
+`LETSENCRYPT_HOST` to only the domain to bitwarden
+(`https://bitwarden.hexdump.cloud`) and configure `LETSENCRYPT_EMAIL`
+to the email at which you'd like to recieve Let's Encrypt emails about
+your cert. Configure all the `SMTP_` variables to the values that
+Mailjet provides, and pick a `SMTP_FROM` that indicates that the
+emails being sent are `no-reply` or by a `daemon`.
 
-```
-sudo pacman -S python python-dbus
-sudo pacman -S networkmanager
-sudo systemctl enable NetworkManager.service
-```
+# Reverse Proxy Setup
 
+Copy `reverse-proxy-docker-compose.yml` and `reverse-proxy` from this
+configuration guide's directory to
+`/reverse-proxy/reverse-proxy/docker-compose.yml` and
+`/reverse-proxy/reverse-proxy/proxy`.
 
-sudo pip install dbus
+# Service Orchestration with Systemd
 
-```
-[Unit]
-Description=ssh-remote-forwarding
-After=network.target
-StartLimitIntervalSec=10
-
-[Service]
-Type=simple
-Restart=always
-RestartSec=5
-User=hexdump
-ExecStart=/usr/bin/ssh -i /home/hexdump/.ssh/router-id_rsa -R 10022:localhost:22 new.telekem.net
-
-[Install]
-WantedBy=multi-user.target
-```
+Ideally, we'll have Bitwarden, Nextcloud, and the reverse proxy all
+started on boot and reboot if they crash. I chose to orchestrate this
+through Systemd: this directory has the service files
+`nextcloud.service`, `bitwarden.service`, and `reverse-proxy.service`.
+Copy all of these files to `/etc/systemd/system`, enable, and start
+all of them:
 
+```bash
+$ sudo systemctl enable nextcloud bitwarden reverse-proxy
+$ sudo systemctl start nextcloud bitwarden reverse-proxy
 ```
-sudo emacs /etc/systemd/system/ssh-remote-forwarding.service
-```
-
-sudo systemctl enable ssh-remote-forwarding.service
 
-now reboot
+# Automatic Backups with Rsync
 
+Since I'm only using a single internal drive, I'd like to configure
+regular backups for my
 
-run SecureW2_JoinNow.run
 
+docker network create proxy-tier

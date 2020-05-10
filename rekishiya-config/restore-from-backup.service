@@ -1,0 +1,12 @@
+[Unit]
+Description=Restore services from backup
+Conflicts=nextcloud.service bitwarden.service reverse-proxy.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/rm -rf /nextcloud /bitwarden /reverse-proxy
+ExecStart=/usr/bin/rsync -a /backup/ /
+
+[Install]
+WantedBy=multi-user.target

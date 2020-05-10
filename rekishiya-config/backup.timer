@@ -1,0 +1,8 @@
+[Unit]
+Description=Backup services daily at 4AM
+
+[Timer]
+OnCalendar=*-*-* 4:00:00
+
+[Install]
+WantedBy=timers.target

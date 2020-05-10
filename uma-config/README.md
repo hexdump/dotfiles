@@ -1,188 +1,24 @@
-# uma-config
+# Manjaro Installation
+- Press F9 and boot from USB
+- Boot with standard settings
+- Start installation
+- American English
+- America/Chicago for region
+- Default keyboard configuration
+- Erase disk, with `Swap (with Hibernate)`. Do not encrypt system.
+- Fill in user information, set the hostname, and select `Use the same password for the administrator account.`
+- Select `No office suite`
+- Install, then restart the computer.
 
-This is the guide for the configuration of *uma*, my desktop Linux computer.
+# BIOS Setup
+- Press F10 on boot to enter the BIOS
+- Under `Advanced > Power-On Options`, enable `After Power Loss`.
+- Under `Advanced > BIOS Power-On`, enable all days and set the boot time to `00:00`. Ensure the BIOS clock is set correctly.
+- Under `Storage > Boot Order`, set `Hard Drive` as the first entry.
+- Save your changes and exit the BIOS.
 
-**note:** this guide assumes you have a reliable ethernet connection.
 
-# preliminary configuration
+- Disable `Launch at start` for Manjaro Hello
+- Enable bluetooth by clicking the icon in the menu bar. Allow it to be enabled automatically.
 
-## preparing install media
-
-**note:** these instructions are specific for macOS.
-
-first, download the latest elementaryos image from [https://elementary.io](https://elementary.io); i'm using `2020.01.01-x86_64` for writing this guide.
-
-then, plug in an usb drive and unmount it (if there's only one external disk plugged in, it'll be `/dev/disk2`):
-
-```
-$ diskutil unmountdisk /dev/disk2
-```
-
-then burn the arch `iso` to the disk with `dd`:
-
-```
-$ sudo dd if=archlinux-2020.01.01-x86_64.iso of=/dev/disk2 bs=4m
-```
-
-## booting
-
-push `F9` as the system is booting to select booting from the `USB Device`.
-
-# Installation
-
-- Click `Install elementary` to install elementaryOS on the hard drive.
-- Choose `English (US)` in both columns for the keyboard layout.
-- Select `Install third-party software for graphics and Wi-Fi hardware and additional media formats`.
-- For `Installation type`, choose `Erase disk and install elementary`. Check `Encrypt the new elementary installation for security`, and click `Continue`.
-- Set a security key.
-- Install on `sda`.
-- Click `Install Now`.
-- Click `Continue` when it asks about changes to disks.
-- Select Chicago as the time zone.
-- Create a user with name and username `hexdump`. Name the computer `uma`. Personally, I use the same passphrase for my disk encryption as I do for my user password.
-
-# Post-Installation
-
-When presented with the introductory window, click `Skip All`, then `Get Started`.
-
-# Install `snap`
-
-Enable `snapd`:
-
-```bash
-$ sudo apt-get update
-$ sudo apt-get install snapd
-```
-
-Then reboot:
-
-```bash
-$ sudo reboot
-```
-
-# Install `software-properties-common`
-
-```bash
-$ sudo apt-get install software-properties-common
-```
-
-# Remove Dock
-
-```bash
-$ sudo apt-get remove plank
-```
-
-Then log out and log back in.
-
-# Install applications
-
-```bash
-$ sudo apt-get install emacs
-```
-
-```bash
-$ sudo snap install telegram-desktop
-```
-
-```bash
-$ wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
-$ sudo add-apt-repository 'deb https://typora.io/linux ./'
-$ sudo apt-get update
-$ sudo apt-get install typora
-```
-
-```bash
-$ sudo snap install gimp \
-                    inkscape \
-                    spotify \
-                    vlc \
-                    firefox \
-                    discord
-```
-
-```
-$ sudo apt-get install steam
-```
-
-```
-$ sudo apt-get install torbrowser-launcher
-```
-
-```
-$ sudo add-apt-repository ppa:deluge-team/ppa
-$ sudo apt-get update
-$ sudo apt-get install deluge
-```
-
-Download Tor Browser from the website (no, really, there's literally no way to do this through package managers. I don't understand it either). Then run the following commands:
-
-```
-$ tar xvf tor-browser-linux64-9.0.7_en-US.tar.xz
-$ mv tor-browser_en-US/* ~/.local/share/applications/.
-$ /usr/share/applications/start-tor-browser.desktop --register-app
-```
-
-```
-$ sudo apt-get install libreoffice
-```
-
-```
-$ sudo apt-get install git
-```
-
-# Terminal Configuration
-
-Right click on the title bar of an open terminal window and select the white circle to make the terminal light theme.
-
-# Configure keybindings
-
-Put the following in `~/.Xmodmap`:
-
-```
-keycode 9 = grave asciitilde
-clear lock
-clear control
-keycode 66 = Control_L
-add control = Control_L Control_R
-```
-
-Then, in `System Settings > Applications > Startup` add the custom command:
-
-```
-/usr/bin/xmodmap /home/hexdump/.Xmodmap
-```
-
-# Set desktop wallpaper
-Set the desktop wallpaper in this folder, `desktop.png` to the wallpaper.
-
-# Generate SSH key
-
-To generate an SSH key, run:
-
-```shell
-$ ssh-keygen
-```
-
-Then, link your SSH key up to GitHub/VPSes/wherever else you use SSH authentication.
-
-# Set up Git credentials
-
-To set up your `git` name and email, run:
-
-```bash
-$ EDITOR=emacs git config --global --edit
-```
-
-Edit the contents to the following:
-
-```
-[user]
-    name = hexdump
-    email = contact@hexdump.email
-```
-
-# Change shell to `zsh`
-
-```bash
-$ chsh hexdump -s /bin/zsh
-```
+- In `Manjaro Settings Manager > Time and Date`, enable `Set time and date automatically` and `Hardware clock in local time zone`.

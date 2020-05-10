@@ -1,0 +1,9 @@
+[Unit]
+Description=Periodically trigger dynamic DNS update
+After=network.target
+
+[Timer]
+OnUnitActiveSec=5m
+
+[Install]
+WantedBy=timers.target

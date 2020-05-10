@@ -1,0 +1,11 @@
+[Unit]
+Description=Update Dynamic DNS for hexdump.cloud
+After=network.target
+
+[Service]
+Type=oneshot
+User=hexdump
+ExecStart=/usr/bin/curl https://dynamicdns.park-your-domain.com/update?host=HOST&domain=DOMAIN&password=PASSWORD
+
+[Install]
+WantedBy=multi-user.target

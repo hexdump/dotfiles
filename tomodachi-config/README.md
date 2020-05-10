@@ -103,6 +103,31 @@ $ sudo pacman -S android-tools
 ```
 
 # Lineage setup
+
 - Select `English (United States)` for the language
 - Select `Central America GMT-6:00` for the timezone, and ensure the date and time are close to correct.
-- 
+- Connect to Wi-Fi
+- Enable the 1 SIM installed (T-Mobile) for data
+- Enable cellular data during setup
+- Allow permission-based location services, but nothing else (the default LineageOS configuration)
+- Disable LineageOS diagnostic data
+- Skip fingerprint setup
+- Set up a PIN
+
+# Post-Installation Configuration
+
+## Enable Developer Mode and Root
+
+Go into `Settings > About phone` and tap on `Build number` 7 times to enable developer mode.
+Go to `Settings > System > Developer options`. Set `Root access` to `Apps and ADB`. Under the the `Debugging` header enable `Local terminal`.
+
+## Install F-Droid Apps
+- Fennec F-Droid
+- Aurora Store
+
+## Install Google Play Apps
+- Signal
+- Pebble
+
+
+- set hostname
