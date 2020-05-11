@@ -22,3 +22,8 @@
 - Enable bluetooth by clicking the icon in the menu bar. Allow it to be enabled automatically.
 
 - In `Manjaro Settings Manager > Time and Date`, enable `Set time and date automatically` and `Hardware clock in local time zone`.
+
+# Installation
+```
+$ sudo pip3 install virtualenv
+```
