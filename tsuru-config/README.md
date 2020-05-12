@@ -34,14 +34,14 @@ Choose the `Reinstall MacOS` option on the new disk.
 Since XCode takes a while to download and install, you can run through the `macOS Configuration` concurrently with the `Development Tools` section.
 
 ## Disable unused iCloud services
-Under the `Apple ID` menu in System Preferences, I've disabled the following:
-
-- iCloud Drive
-- News
-- Stocks
-- Home
+Under the `Apple ID` menu in System Preferences, disable all iCloud services except for Mail, Keychain, and Find My Mac.
 
 I accepted the prompts that said I'd lose my data, since I don't have any data in those apps.
+
+## Configure Nextcloud Sync
+In `System Preferences > Internet Accounts`, remove Game Center. Add two accounts through the `+` icon and then the `Add Other Account...` prompt:
+- A CalDAV account at the server address `https://nextcloud.hexdump.cloud/remote.php/dav/principals/users/hexdump` (select the server address with `Account Type > Manual`) and with my Nextcloud credentials. After I added the account I changed the description to `nextcloud` and also enabled Reminders syncing.
+- A CardDAV account also at the server address `https://nextcloud.hexdump.cloud/remote.php/dav/principals/users/hexdump` (select the server address with `Account Type > Manual`) and with my Nextcloud credentials. After I added the account I changed the description to `nextcloud`.
 
 ## Set Accent Color & Miscellany
 
@@ -143,7 +143,7 @@ In Finder's `Preferences > General`, I've configured `New Finder windows show` t
 
 ### `Finder Preferences > Sidebar`
 
-By default, Finder puts a lot of stuff in the sidebar. I like to strip this down to only folders I frequently use: I've unchecked everything but `AirDrop`, `Applications`, `Desktop`, `Documents`, `Downloads`, `lschumm` (my home folder), and `External disks`.
+By default, Finder puts a lot of stuff in the sidebar. I like to strip this down to only folders I frequently use: I've unchecked everything but `AirDrop`, `Applications`, `Desktop`, `Documents`, `Downloads`, `lschumm` (my home folder), `External disks`, and `Connected servers`.
 
 <img alt="The `Finder Preferences > Sidebar` pane open with nothing checked but `AirDrop`, `Applications`, `Desktop`, `Downloads`, `hexdump` (my home folder), and `External disks`." src="images/finder-preferences-sidebar.png" height="600"/>
 
@@ -207,7 +207,6 @@ $ brew install zsh \
                emacs \
                python3 \
                rust \
-               duti \
                cmake \
                moreutils \
                nmap \
@@ -219,7 +218,8 @@ $ brew install zsh \
 Using pip (specifically `pip3`), install the following:
 
 ```bash
-$ sudo pip3 install ptpython
+$ sudo pip3 install ptpython \
+                    virtualenv
 ```
 
 ## Userland Applications
@@ -242,16 +242,16 @@ $ brew cask install telegram \
                     alfred \
                     yed \
                     arduino \
-		    discord \
-		    java
+		                discord \
+		                java \
+		                libreoffice
 ```
 
 I then install Pages, Numbers, and Keynote from the Mac App Store.
 
-## Set Tor Browser as the Default Browser
+## Set Firefox as the Default Browser
 
-In `System Preferences > General`, set the default browser to `Tor Browser.app`.
-
+In `System Preferences > General`, set the default browser to `Firefox.app`.
 
 ## Set up Git credentials
 
@@ -301,11 +301,17 @@ Then, link your SSH key up to GitHub/VPSes/wherever else you use SSH authenticat
 
 ## Opening Terminal-Based Emacs on Files
 
+I sometimes use Finder to browse through my filesystem, and I also use the `open` command to open files. Both of these use macOS' built-in file type resolution that picks an appropriate application to open the selected files. Since I like using terminal-based emacs instead of a native emacs GUI, I need to create a custom wrapper with a shell script with which to open files.
+
+Open Automator and create a new Application:
+
 ![The opening screen of Automator open, with the type of document chosen to be `Application`.](images/automator-terminal-emacs-hook-1.png)
+
+Then add a `Run AppleScript` action:
 
 ![Automator open, with the `Actions` search field filled in with `applescript`, and the single result `Run AppleScript` showing.](images/automator-terminal-emacs-hook-2.png)
 
-![The Automator `Run AppleScript` Action with the script below filled in.](images/automator-terminal-emacs-hook-3.png)
+Fill in the following code:
 
 ```applescript
 on run {input, parameters}
@@ -317,7 +323,9 @@ on run {input, parameters}
 end run
 ```
 
-Save this as `cli-emacs-hook.app` in `Applications`.
+![The Automator `Run AppleScript` Action with the script below filled in.](images/automator-terminal-emacs-hook-3.png)
+
+Save this as `emacs-cli-hook.app` in `Applications`. Instructions to configure the default applications to open apps are in `duti-config`.
 
 ## Disable Gatekeeper
 
@@ -329,4 +337,12 @@ $ sudo spctl --master-disable
 
 ## Install office apps
 
-Install Pages, Numbers, and Keynote from the macOS app store.
+Install Pages, Numbers, and Keynote from the macOS app store to supplement LibreOffice.
+
+## Disable writing .DS_Store files to network shares
+
+It's absolutely ridiculous that Finder does this by default, but here's how to disable it:
+
+```bash
+$ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+```

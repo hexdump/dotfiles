@@ -27,3 +27,5 @@
 ```
 $ sudo pip3 install virtualenv
 ```
+
+pacman -S moreutils

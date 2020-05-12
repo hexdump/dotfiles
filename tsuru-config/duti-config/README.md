@@ -1,4 +1,4 @@
-# macOS-config > duti-config
+# duti-config
 
 `duti` is software for macOS that can set the application set to open
 specific file types. Since I use Finder double-clicking and the macOS
@@ -17,19 +17,19 @@ $ brew install duti
 `duti` requires the bundle ID for applications it binds to filetypes.
 These bundle IDs can rather easily be found; either through:
 
-```shell
+```bash
 $ osascript -e 'id of app "SomeApp"'
 ```
 
 or
 
-```shell
+```bash
 $ mdls -name kMDItemCFBundleIdentifier -r SomeApp.app
 ```
 
 A valid bundle identifier should (very roughly) look like:
 
-```shell
+```bash
 $ com.apple.automator.emacs-cli-hook
 ```
 
@@ -55,4 +55,6 @@ $ sh duti-bulk-map.sh com.apple.automator.emacs-cli-hook code-file-extensions.tx
 
 I've included a file named `code-file-extensions.txt` which contains
 a big list of file extensions for code files. I'm definitely missing
-many, so if your favorite extension is missing, *please* make a PR!
+many, so if your favorite extension is missing, please make a PR!
+
+I use `duti-bulk-map.sh` to bind `emacs-cli-hook` to all code file extensions, and manually bind Typora (`abnerworks.Typora`) to `.md`, `.rst`, and `.txt` files.

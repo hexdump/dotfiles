@@ -13,7 +13,8 @@ those directories.
 
 When the installation has multiple levels of specificity (e.g., 
 setting up bash completions on macOS), there will be `*-config` folders
-inside `*-config` folders.
+inside `*-config` folders. To complete setup in a specific directory,
+make sure to check all the `*-config` folders.
 
 ## Licensing
 
