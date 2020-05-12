@@ -33,6 +33,7 @@
 .ccn
 .ccp
 .ccs
+.css
 .cd
 .cdf
 .cfc
@@ -156,6 +157,7 @@
 .hpf
 .hpp
 .hs
+.html
 .hxx
 .i
 .iconset
