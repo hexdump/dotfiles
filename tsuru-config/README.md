@@ -242,9 +242,10 @@ $ brew cask install telegram \
                     alfred \
                     yed \
                     arduino \
-		                discord \
-		                java \
-		                libreoffice
+		    discord \
+		    java \
+		    libreoffice \
+                    bitwarden
 ```
 
 I then install Pages, Numbers, and Keynote from the Mac App Store.
