@@ -1,5 +1,11 @@
 # rekishiya-config
 
+This is the configuration guide for *rekishiya*, my Nextcloud/Bitwarden server.
+
+# Initial Configuration
+
+Download the latest version of Manjaro and burn it to an USB drive.
+
 # On boot, press F2
 
 - Under `General > Boot Sequence`, disable all options except `Manjaro`.
