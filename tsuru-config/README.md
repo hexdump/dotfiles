@@ -343,7 +343,7 @@ end run
 
 ![The Automator `Run AppleScript` Action with the script below filled in.](images/automator-terminal-emacs-hook-3.png)
 
-Save this as `emacs.app` in `Applications`. Instructions to configure the default applications to open apps are in `duti-config`.
+Save this as `emacs.app` in `Applications`. Instructions to configure the default applications to open apps are in `duti-config`. To spice things up, I've added an icon for `emacs.app` in this folder under the filename `emacs.png`.
 
 ## Disable Gatekeeper
 
