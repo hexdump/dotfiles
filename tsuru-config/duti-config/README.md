@@ -29,9 +29,12 @@ $ mdls -name kMDItemCFBundleIdentifier -r SomeApp.app
 
 A valid bundle identifier should (very roughly) look like:
 
-```bash
-$ com.apple.automator.emacs-cli-hook
 ```
+com.apple.automator.emacs-cli-hook
+```
+
+If you're getting the bundle identifier of an automator app, make sure
+you've opened it at least once.
 
 *Found on a StackOverflow [answer](https://stackoverflow.com/a/39464824) from [@Qing](https://stackoverflow.com/users/6745884/qing).*
 

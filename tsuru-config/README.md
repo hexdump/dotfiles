@@ -300,9 +300,16 @@ Then, link your SSH key up to GitHub/VPSes/wherever else you use SSH authenticat
 
 ![The `System Preferences > Users & Groups > Login Items` pane with the items `Karabiner-Elements`, `ProtonVPN`, and `Alfred 4`. The `Hide` checkbox next to each item is checked.](images/login-items.png)
 
-## Opening Terminal-Based Emacs on Files
+## Terminal-Based Emacs as an Application
 
-I sometimes use Finder to browse through my filesystem, and I also use the `open` command to open files. Both of these use macOS' built-in file type resolution that picks an appropriate application to open the selected files. Since I like using terminal-based emacs instead of a native emacs GUI, I need to create a custom wrapper with a shell script with which to open files.
+I sometimes use Finder to browse through my filesystem, and I also use
+the `open` command to open files. Both of these use macOS' built-in
+file type resolution that picks an appropriate application to open the
+selected files. Since I like using terminal-based emacs instead of a
+native emacs GUI, I need to create a custom wrapper with a shell
+script with which to open files. I also like launching applications
+through the application launcher, so I want this wrapper to be able to
+launch emacs just as any other application would open.
 
 Open Automator and create a new Application:
 
@@ -316,17 +323,27 @@ Fill in the following code:
 
 ```applescript
 on run {input, parameters}
+	set arg to (input as string)
+	
+	if arg is not equal to "" then
+		set arg to (POSIX path of input)
+	end if
 	
 	tell application "Terminal"
-		do script "/usr/local/bin/emacs" & " " & POSIX path of input
+		if it is running then
+			activate
+		else
+			activate
+			close window 1
+		end if
+		do script "/usr/local/bin/emacs" & " " & arg
 	end tell
-	
 end run
 ```
 
 ![The Automator `Run AppleScript` Action with the script below filled in.](images/automator-terminal-emacs-hook-3.png)
 
-Save this as `emacs-cli-hook.app` in `Applications`. Instructions to configure the default applications to open apps are in `duti-config`.
+Save this as `emacs.app` in `Applications`. Instructions to configure the default applications to open apps are in `duti-config`.
 
 ## Disable Gatekeeper
 
