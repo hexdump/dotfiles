@@ -443,6 +443,7 @@
 .wxi
 .wxl
 .wxs
+.xml
 .xaml
 .xamlx
 .xap
