@@ -120,6 +120,12 @@ Then we edit `/etc/hosts` with `nano` to the following contents:
 ::1             localhost
 ```
 
+Then we enable NetworkManager:
+
+```
+sudo systemctl enable NetworkManager.service
+```
+
 Then, we use `nano` to edit `/etc/mkinitcpio.conf`. We add `ext4` to the `MODULES` list and `encrypt lvm2` before `filesystems` in the `HOOKS` list. Then, regenerate with `mkinitcpio -p linux`.
 
 Then, do an `bootctl install` for systemd-boot to get its bearings. After this, edit `/efi/loader/entries/arch.conf` to the following:
