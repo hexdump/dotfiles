@@ -1,15 +1,23 @@
-First, we format the disk with `$ fdisk /dev/sda`:
+First, we format the disk with `$ fdisk /dev/sdb`:
 
 ```
 (fdisk) g
 (fdisk) n
-(fdisk) p
-(fdisk) 1
+(fdisk) <Enter>
 (fdisk) <Enter>
 (fdisk) +256M
 (you may have to type y here to remove a signature)
 (fdisk) t
-(fdisk) 83
+(fdisk) 1
+
+(fdisk) n
+(fdisk) <Enter>
+(fdisk) <Enter>
+(fdisk) +256M
+(you may have to type y here to remove a signature)
+(fdisk) t
+(fdisk) <Enter>
+(fdisk) 20
 
 (fdisk) n
 (fdisk) <Enter>
@@ -17,8 +25,9 @@ First, we format the disk with `$ fdisk /dev/sda`:
 (fdisk) <Enter>
 (you may have to type y here to remove a signature)
 (fdisk) t
-(fdisk) 2
+(fdisk) <Enter>
 (fdisk) 30
+
 
 (fdisk) w
 ```
@@ -26,45 +35,42 @@ First, we format the disk with `$ fdisk /dev/sda`:
 Then, we format the boot partition:
 
 ```
-mkfs.fat -F32 /dev/sda1
+mkfs.fat -F32 /dev/sdb1
+mkfs.ext4 /dev/sdb2
 ```
 
 Then, we set up our space for encrypted partitions
 
 ```
-# cryptsetup -c aes-xts-plain64 -y --use-random luksFormat /dev/sda2
-# cryptsetup luksOpen /dev/sda2 luks
-# pvcreate /dev/mapper/luks
-# vgcreate vg0 /dev/mapper/luks
-```
-
-Then we create the actual partitions:
-
-```
-# lvcreate --size 8G vg0 --name swap
-# lvcreate -l +100%FREE vg0 --name root
+# cryptsetup luksFormat /dev/sdb3
+# cryptsetup luksOpen /dev/sdb3 lvm
+# pvcreate /dev/mapper/lvm
+# vgcreate vg /dev/mapper/lvm
+# lvcreate -L 8G vg -n swap
+# lvcreate -L +100%FREE vg -n root
 ```
 
 Then, we format the encrypted partitions:
 
 ```
-mkfs.ext4 /dev/mapper/vg0-root
-mkswap /dev/mapper/vg0-swap
+mkfs.ext4 /dev/mapper/vg-root
+mkswap /dev/mapper/vg-swap
 ```
 
 Then, we prepare the system for chroot:
 
 ```
-mount /dev/mapper/vg0-root /mnt
-mkdir /mnt/boot
-mount /dev/sda1 /mnt/boot
+mount /dev/mapper/vg-root /mnt
+mkdir -p /mnt/efi /mnt/boot
+mount /dev/sdb1 /mnt/efi
+mount /dev/sdb2 /mnt/boot
 swapon /dev/mapper/vg0-swap
 ```
 
 Then, we run `dhcpcd` to make sure the internet is working, testing using `ping 1.1.1.1` or similar. Then, we install the base system:
 
 ```
-pacstrap -i /mnt base base-devel linux linux-firmware lvm2 nano
+pacstrap -i /mnt base base-devel linux linux-firmware grub efibootmgr lvm2 nano networkmanager intel-ucode
 ```
 
 Then, we generate a fstab:
@@ -82,7 +88,7 @@ arch-chroot /mnt
 Then, we select a timezone:
 
 ```
-ln -s /user/share/zoneinfo/America/Chicago /etc/localtime
+ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
 ```
 
 Then we set up our locale:
@@ -116,31 +122,18 @@ Then we edit `/etc/hosts` with `nano` to the following contents:
 
 Then, we use `nano` to edit `/etc/mkinitcpio.conf`. We add `ext4` to the `MODULES` list and `encrypt lvm2` before `filesystems` in the `HOOKS` list. Then, regenerate with `mkinitcpio -p linux`.
 
-Then, do an `bootctl install` for systemd-boot to get its bearings. After this, edit `/boot/loader/entries/arch.conf` to the following:
+Then, do an `bootctl install` for systemd-boot to get its bearings. After this, edit `/efi/loader/entries/arch.conf` to the following:
 
 ```
 title Arch Linux
 linux /vmlinuz-linux
+initrd  /intel-ucode.img
 initrd /initramfs-linux.img
 options cryptdevice=/dev/sda2:vg0:allow-discards root=/dev/mapper/vg0-root rw
-```
-
-and once again run `bootctl install`.
-
-Next, install git with `pacman -S git`. Clone yay with `git clone https://aur.archlinux.org/yay.git`, `cd git`, and `makepkg -si`.
-
-Run `yay -S broadcom-wl`. After running this, run:
 
 ```
-rmmod b43
-rmmod ssb
-modprobe wl
-```
 
-Now install NetworkManager with `pacman`.
-
-
-Now set the root password with `passwd`.
+Now set the root password with `passwd`, and reboot.
 
 # Deprecated
 
