@@ -1,4 +1,0 @@
-Host *
-	SendEnv LANG LC_*
-	AddKeysToAgent yes
-   	UseKeychain yes
