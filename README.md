@@ -1,8 +1,8 @@
 # dotfiles
 
-My personal collection of computer configuration guides both for
-personal reference and reproducibility as well as allowing other
-people to use my utilities.
+This is my personal collection of computer configuration guides both
+for personal reference and reproducibility, as well as allowing other
+people to use my utilities and configuration files.
 
 ## Repository Structure
 

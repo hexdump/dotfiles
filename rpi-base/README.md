@@ -166,5 +166,6 @@ All of my servers have:
 - `htop`
 - `emacs`
 - `git`
+- `rsync`
 
 These can all be installed via `pacman`.

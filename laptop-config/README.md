@@ -399,3 +399,8 @@ $ asoundconf set-default-card 1
 
 - https://gist.github.com/mattiaslundberg/8620837
 - https://gist.github.com/glats/ca71bbddc85f6a756e1e
+
+# Theme
+
+Colors are:
+- 263a2c,db504a,6c9a8b,a379c9,db9d47,832161,240b36,fffae3,2e0014,777da7
