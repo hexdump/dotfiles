@@ -1,0 +1,9 @@
+[Unit]
+Description=Trigger `certbot renew` on the first of every month at 4AM.
+
+[Timer]
+OnCalendar=*-*-01 04:00
+Unit=certbot.service
+
+[Install]
+WantedBy=timers.target
