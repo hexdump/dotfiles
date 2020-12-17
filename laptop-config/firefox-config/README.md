@@ -36,7 +36,6 @@ Although a cool landing page could be nice, I'm content with just a blank page.
 
 ### Search
 
-- Check `Add search bar in toolbar`. You can quickly switch focus to the search bar with the `Ctrl-K` keybind.
 - Set `Default Search Engine` to DuckDuckGo.
 - Disable `Provide search suggestions`.
 - Leave `Search Shortcuts` as they are.
@@ -76,10 +75,33 @@ My theme is as follows (configure it under `Custom colors`):
 
 To customize the toolbar, right click on an empty space and select `Customize`.
 
-I remove everything from the toolbar, including spaces, leaving only the URL bar on the left and search bar on the right. In my overflow menu, I put:
+I remove everything from the toolbar, including spaces, leaving only the URL bar on the left and the overflow menu on the right. In my overflow menu, I put:
 
 - Downloads
 - Bitwarden
 - uBlock Origin
 - Privacy Possum
 - Block Site
+
+After you're done customizing, load a page. In the search bar there's a bookmark star icon and a icon for Mozilla's Pocket service. When you right click on both of these, you can remove them from the search bar.
+
+## Add More Search Engines
+
+For some reason, in the `Search Engines` part of Firefox's preferences, the `Find more search engines` link redirects you to the Firefox store and shows you completely unrelated extensions. To *actually* add more search engine options, go to the pages that you would like to add, and click the three horizontal dots in the URL bar, there is an `Add Search Engine` button. Once you've done that, you'll also have to add keywords for this search engine in `Preferences > Search > Search Shortcuts`. The search engines I add are:
+
+- GitHub, with the keyword `@github`,
+- Genius, with the keyword `@genius`.
+
+## DuckDuckGo Configuration
+
+DuckDuckGo lets you set a theme [here](https://duckduckgo.com/settings#appearance)! Here are my settings:
+- `Font` is `sans-serif` (which actually maps to a serif font on my system, but this is more portable) which is selected via the `Custom` option which reveals a text box,
+- `Background Color` is set to `#fffae3`,
+- `Header Color` is set to `#6c9a8b`,
+- `Result Title Font` is set to `sans-serif`,
+- `Result Title Color` is set to `#240b36`,
+- `Result Visited Title Color` is set to `#db9d47`,
+- `Result Description Color` is set to `#240b36`,
+- `Result URL Color` is set to `#db9d47`,
+- `Result Hover, Module, and Dropdown Background Color` is set to `#fffae3`,
+- `Site Icons` is set to `Off`.
