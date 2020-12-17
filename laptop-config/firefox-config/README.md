@@ -1,0 +1,85 @@
+# firefox-config
+
+## Installation
+
+Install Firefox via `pacman`:
+
+```shell
+$ pacman -S firefox
+```
+
+Open Firefox. Don't use any of Firefox's splash screen configuration.
+
+## Profiles Configuration
+
+I keep my personal and university work separate in my browser. Navigating to `about:profiles` in Firefox will let you manage your profiles. Firefox comes with an extra profile named `default`, which we'll rename to `university`. Rename the `default-release` profile to `personal`.
+
+**Note that** all of the further configuration in this guide will only be saved in the profile in which you make these changes. Thus, you'll have to do everything here twice.
+
+## Preferences
+
+### General
+
+- Disable `Ctrl+Tab cycles through tabs in recently used order`.
+- Enable `When you open a link in a new tab, switch to it immediately`.
+- Make sure that `Search for text when you start typing` is disabled. I'm not sure if at one point this was enabled by default, but at one point I had it enabled and it was absolutely terrible.
+- Disable `Recommend extensions as you browse`.
+- Disable `Recommend features as you browse`.
+
+### Home
+
+Although a cool landing page could be nice, I'm content with just a blank page.
+
+- Set `Homepage and new windows` to `Blank Page`.
+- Set `New tabs` to `Blank Page`.
+- Uncheck everything under `Firefox Home Content`.
+
+### Search
+
+- Check `Add search bar in toolbar`. You can quickly switch focus to the search bar with the `Ctrl-K` keybind.
+- Set `Default Search Engine` to DuckDuckGo.
+- Disable `Provide search suggestions`.
+- Leave `Search Shortcuts` as they are.
+
+### Privacy & Security
+
+- Set `Enhanced Tracking Protection` to `Strict`.
+- Set `Send websites a "Do Not Track" signal that you don't want to be tracked` to `Always`.
+- Disable everything under `Logins and Passwords`. I prefer to use Bitwarden for my passwords instead of any in-browser functionality.
+- Under `Firefox Data Collection and Use`, disable everything.
+
+## Add-Ons
+
+I download add-ons from the official [Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/) site. I enable the `Allow this extension to run in Private Windows` option for all extensions.
+
+- Bitwarden - Free Password Manager: This is a great, self-hostable password manager. I use the [bitwarden-rs](https://github.com/dani-garcia/bitwarden_rs) fork for my server.
+- uBlock Origin: This is the best ad-blocker. It blocks URLs for ads from loading at all, increasing browser performance and limiting tracking. It also seems like a decent project.
+- Privacy Possum: I use this instead of EFF's Privacy Badger because I believe its approach is more effective; sending trackers falsified information seems like it would work better at making my online identity harder to piece together than just submitting as little data as possible.
+- Block Site: I use this to block time-wasting sites.
+- Firefox Color: This is an easy theme maker for Firefox.
+
+## Firefox Color
+
+My theme is as follows (configure it under `Custom colors`):
+
+- Toolbar Color: `6C9A8B`
+- Background Color: `263A2C`
+- Search Bar Color: `FFFAE3`
+- Tab Highlight Color: `6C9A8B`
+- Popup Text: `240B36`
+- Toolbar Icons and Text: `FFFAE3`
+- Background Tab Text Color: `DB9D47`
+- Search Text: `240B36`
+- Popup Background: `FFFAE3`
+
+## Toolbar
+
+To customize the toolbar, right click on an empty space and select `Customize`.
+
+I remove everything from the toolbar, including spaces, leaving only the URL bar on the left and search bar on the right. In my overflow menu, I put:
+
+- Downloads
+- Bitwarden
+- uBlock Origin
+- Privacy Possum
+- Block Site
