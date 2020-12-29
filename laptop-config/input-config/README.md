@@ -35,4 +35,4 @@ $ xinput set-button-map 13 1 0 3 4 5 6 7 8 9 10
 
 Normally, the sequence of numbers after the pointer ID will be `1` through `10`. Number `2` is the middle mouse click function, and setting it to `0` will map it to a "nothing" action, while retaining the other functionality of the middle mouse button.
 
-In order to run this at boot, we put the `xinput` commands into your `~/.xsessionrc` file.
+We put these in our `~/.config/i3/config` file to be run whenever we boot into a desktop (thus able to use a mouse).
