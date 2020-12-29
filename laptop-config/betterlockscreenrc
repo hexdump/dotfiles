@@ -1,0 +1,20 @@
+#
+# [~/.config/betterlockscreen]
+#
+# My configuration file for betterlockscreen.
+# Copyright (C) 2020, Liam Schumm <contact@hexdump.email>.
+#
+
+insidecolor=00000000
+ringcolor=00000000
+keyhlcolor=00000000
+bshlcolor=00000000
+separatorcolor=00000000
+insidevercolor=00000000
+insidewrongcolor=00000000
+ringvercolor=00000000
+ringwrongcolor=00000000
+verifcolor=00000000
+timecolor=ffffffff
+datecolor=00000000
+loginbox=00000000
