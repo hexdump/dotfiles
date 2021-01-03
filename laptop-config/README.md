@@ -1,5 +1,7 @@
 # kuro-config
 
+TODO: document imagemagick permissions stuff
+
 This is the configuration guide for my Thinkpad x240, codenamed
 `monae`. I'm installing Arch as single-boot on the internal 128GB M.2
 SSD; I've configured this as the primary boot drive as to leave the
@@ -393,6 +395,22 @@ And then the sound card can be set with:
 
 ```bash
 $ asoundconf set-default-card 1
+```
+
+### Configuring Git
+
+`git` is included in `base-devel`, so we already have it installed.
+
+First, we'll copy the `gitignore` file in this directory to `~/.gitignore` (and/or modify it to suit your own needs), and set it as a global `.gitignore` file which alows us to not have to bother with repository-specific versions:
+
+```sh
+$ git config --global core.excludesfile ~/.gitignore
+```
+
+Then, we'll tell Git to by default, rebase on pull instead of merge:
+
+```sh
+$ git config --global pull.rebase true
 ```
 
 # Credits
