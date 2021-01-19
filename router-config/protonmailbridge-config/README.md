@@ -44,6 +44,11 @@ need to first generate a key:
 $ gpg --full-gen-key
 ```
 
+- When prompted for `what kind of key you want`, select the default of `RSA and RSA`.
+- When prompted for `What keysize do you want?`, enter `4096`.
+- When prompted for `how long the key should be valid`, accept the default of `0` (i.e., does not expire).
+- Fill in identity information.
+
 Then, we need to initialize `pass` with our key. GPG will recognize
 email as a key identifier, so we'll use that:
 

@@ -1,0 +1,72 @@
+#!/usr/bin/env python
+
+#
+# [texer]
+#
+# A small utility to turn a one-line snippet of TeX math into a PNG file,
+# which is copied to the clipboard.
+# Copyright (C) 2020, Liam Schumm. Licensed under the terms of the GNU GPL v2.0 License.
+# 
+
+import sys
+import click
+import shutil
+import pathlib as path
+import tempfile as tmp
+import subprocess as sp
+
+@click.command()
+@click.argument("math")
+@click.option("-o", "--output-file", help="Path to a file which to save the output PNG, instead of copying it to the clipboard.")
+def texer(math, output_file):
+    # Generate a temporary directory to work in.
+    temp_dir = path.Path(tmp.mkdtemp())
+    with open(temp_dir.joinpath("document.tex"), "w") as f:
+        # Write the necessary header into the file.
+        f.write("\\documentclass[preview, margin=5mm]{standalone}\n\\usepackage{amsmath}\n\\begin{document}\n\\[")
+        # Write the user-supplied math.
+        f.write(math)
+        # Write the necessary footer into the file.
+        f.write("\\]\n\\end{document}")
+
+    # Generate a PDF using `pdflatex`.
+    p = sp.Popen(["pdflatex", "-halt-on-error", "document.tex"],
+                 stdout = sp.PIPE, stderr = sp.PIPE,
+                 cwd = temp_dir)
+    p.wait()
+    if p.poll():
+        print("[texer] error: could not generate PDF using `pdflatex`.")
+        sys.stdout.buffer.write(p.stdout.read())
+        sys.stderr.buffer.write(p.stderr.read())
+        sys.exit(1)
+
+    # Convert this PDF into a PNG using ImageMagick `convert`.
+    p = sp.Popen(["convert", "-density", "300", "document.pdf",
+                  "-quality", "90", "document.png"],
+                 stdout = sp.PIPE, stderr=sp.PIPE,
+                 cwd = temp_dir)
+    p.wait()
+    if p.poll():
+        print("[texer] error: could not convert PDF into a PNG using ImageMagick `convert`.")
+        sys.stderr.buffer.write(p.stderr.read())
+        sys.exit(1)
+
+    # If an output_file is specified, copy our output to that file.
+    if output_file is not None:
+        shutil.copyfile(temp_dir.joinpath("document.png"), output_file)
+    # Else, use `xclip` to copy output PNG to the clipboard.
+    else:
+        p = sp.Popen(["xclip", "-selection", "clipboard", "-t",
+                      "image/png", "-i", "document.png"],
+                     stdout = sp.PIPE, stderr=sp.PIPE,
+                     cwd = temp_dir)
+        p.wait()
+        if p.poll():
+            print(p.stderr)
+            print("[texer] error: could not use `xclip` to copy output PNG to the clipboard.")
+            sys.stderr.buffer.write(p.stderr.read())
+
+    # Clean up our temporary directory.
+    shutil.rmtree(temp_dir)
+
+texer()

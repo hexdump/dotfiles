@@ -24,6 +24,8 @@ you are preparing the install media).
 Make sure the target boot drive is selected as the first boot option,
 and make sure that UEFI booting is standard.
 
+In terms of configuration, I've conveniently been able to disable some ports I don't use (under a "Security" section), like Ethernet and Fingerprint Reader. I was also able to boost my allocated graphics memory from 256MB to 512MB.
+
 ## Booting
 
 This will depend on your laptop, but on mine I have to hit `<Enter>`
