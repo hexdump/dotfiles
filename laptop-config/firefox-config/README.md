@@ -22,6 +22,7 @@ I keep my personal and university work separate in my browser. Navigating to `ab
 
 - Disable `Ctrl+Tab cycles through tabs in recently used order`.
 - Enable `When you open a link in a new tab, switch to it immediately`.
+- Disable `Check your spelling as you type`.
 - Make sure that `Search for text when you start typing` is disabled. I'm not sure if at one point this was enabled by default, but at one point I had it enabled and it was absolutely terrible.
 - Disable `Recommend extensions as you browse`.
 - Disable `Recommend features as you browse`.
@@ -55,6 +56,7 @@ I download add-ons from the official [Add-ons for Firefox](https://addons.mozill
 - uBlock Origin: This is the best ad-blocker. It blocks URLs for ads from loading at all, increasing browser performance and limiting tracking. It also seems like a decent project.
 - Privacy Possum: I use this instead of EFF's Privacy Badger because I believe its approach is more effective; sending trackers falsified information seems like it would work better at making my online identity harder to piece together than just submitting as little data as possible.
 - Block Site: I use this to block time-wasting sites.
+- ClearURLs: This removes tracking code from URLs.
 - Firefox Color: This is an easy theme maker for Firefox.
 
 ## Firefox Color
@@ -79,8 +81,9 @@ I remove everything from the toolbar, including spaces, leaving only the URL bar
 
 - Downloads
 - Bitwarden
-- uBlock Origin
+- ClearURLs Add-on
 - Privacy Possum
+- uBlock Origin
 - Block Site
 
 After you're done customizing, load a page. In the search bar there's a bookmark star icon and a icon for Mozilla's Pocket service. When you right click on both of these, you can remove them from the search bar.
@@ -91,17 +94,3 @@ For some reason, in the `Search Engines` part of Firefox's preferences, the `Fin
 
 - GitHub, with the keyword `@github`,
 - Genius, with the keyword `@genius`.
-
-## DuckDuckGo Configuration
-
-DuckDuckGo lets you set a theme [here](https://duckduckgo.com/settings#appearance)! Here are my settings:
-- `Font` is `sans-serif` (which actually maps to a serif font on my system, but this is more portable) which is selected via the `Custom` option which reveals a text box,
-- `Background Color` is set to `#fffae3`,
-- `Header Color` is set to `#6c9a8b`,
-- `Result Title Font` is set to `sans-serif`,
-- `Result Title Color` is set to `#240b36`,
-- `Result Visited Title Color` is set to `#db9d47`,
-- `Result Description Color` is set to `#240b36`,
-- `Result URL Color` is set to `#db9d47`,
-- `Result Hover, Module, and Dropdown Background Color` is set to `#fffae3`,
-- `Site Icons` is set to `Off`.
